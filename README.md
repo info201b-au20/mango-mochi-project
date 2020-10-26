@@ -3,7 +3,7 @@ By: Tenzin Zomkyi, Christina Chen, Noah Logman, and Justin Ung
 ## Domain of Interest
 - Why are you interested in this field/domain?
 
-In the midst of political, social, and economic polarization induced by COVID outbreaks, it would be interesting to explore the new *dynamics of the labor force*. Particularly, we will focus on the intersecting components of *employment and recession*: gender, race, age, income level, etc. By doing so, we hope to discover and understand the stories behind the numbers.
+  In the midst of political, social, and economic polarization induced by COVID outbreaks, it would be interesting to explore the new *dynamics of the labor force*. Particularly, we will focus on the intersecting components of *employment and recession*: gender, race, age, income level, etc. By doing so, we hope to discover and understand the stories behind the numbers.
 
 - What other examples of data driven project have you found related to this domain (share at least 3)?
 
