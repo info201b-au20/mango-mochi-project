@@ -21,7 +21,7 @@ By: Tenzin Zomkyi, Christina Chen, Noah Logman, Justin Ung
 
 ### Dataset 2
 - Where did you download the data (e.g., a web URL)?
-   - [Dataset 2](https://www.openicpsr.org/openicpsr/project/119446/version/V38/view?path=/openicpsr/119446/fcr:versions/V38)
+   - [Covid State Policy Data](https://www.openicpsr.org/openicpsr/project/119446/version/V38/view?path=/openicpsr/119446/fcr:versions/V38)
 - How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
    - The data was collected from a variety of sources including state mandates, orders, and official governor press releases. The data was then compiled by researchers at the Boston University School of Public Health. The data includes state policies on closures, shelter-in-place orders, housing protections, changes to Medicaid and SNAP, physical distancing closures, reopening and more.
 - How many observations (rows) are in your data?
