@@ -9,15 +9,15 @@ In the midst of political, social, and economic polarization induced by COVID ou
 
   - [The Impact of COVID-19 on Gender Equality](https://www.nber.org/system/files/working_papers/w26947/w26947.pdf)
 
-  This NBER working paper delves into the implications for gender equality in COVID-19 times, focusing on the downturn and recovery of work. Written during the earlier phase of the outbreaks, the authors reveal that in contrast to “regular” recessions, women will face the most adverse effects. This conclusion derives from existing data involving childcare, volatility of work hours, occupational flexibility, and gender norms.
+    This NBER working paper delves into the implications for gender equality in COVID-19 times, focusing on the downturn and recovery of work. Written during the earlier phase of the outbreaks, the authors reveal that in contrast to “regular” recessions, women will face the most adverse effects. This conclusion derives from existing data involving childcare, volatility of work hours, occupational flexibility, and gender norms.
 
   - [The COVID-19 Recession is The Most Unequal in Modern U.S History ](https://www.washingtonpost.com/graphics/2020/business/coronavirus-recession-equality/)
 
-  Storytelling with data, this case study emphasizes the overwhelming economic detriment of COVID-19 on low-wage, minority workers. Additionally, it reveals the demographic groups most impacted by the crisis in terms of job recovery - Black women, Black men, Hispanic men, Asian Americans, younger Americans, and people without degrees. Wondering what the key takeaway is? Read the title again.
+    Storytelling with data, this case study emphasizes the overwhelming economic detriment of COVID-19 on low-wage, minority workers. Additionally, it reveals the demographic groups most impacted by the crisis in terms of job recovery - Black women, Black men, Hispanic men, Asian Americans, younger Americans, and people without degrees. Wondering what the key takeaway is? Read the title again.
 
   - [Billionaire Wealth U.S Job Losses and Pandemic Profiteers](https://inequality.org/great-divide/updates-billionaire-pandemic/)
 
-  This ongoing project centers around data concerning COVID-19 and billionaire wealth. With real time updates, it showcases the magnitude of the gap between pandemic profiteers (both domestic and globally) and the working class. While billionaire wealth continues to skyrocket, certain demographics continue to face hardships in the food, housing, and unemployment sector.
+    This ongoing project centers around data concerning COVID-19 and billionaire wealth. With real time updates, it showcases the magnitude of the gap between pandemic profiteers (both domestic and globally) and the working class. While billionaire wealth continues to skyrocket, certain demographics continue to face hardships in the food, housing, and unemployment sector.
 
 - What data-driven questions do you hope to answer about this domain (share at least 3)?
 
