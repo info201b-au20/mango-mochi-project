@@ -1,5 +1,5 @@
 # Team Mango Mochi
-By: Tenzin Zomkyi, Christina Chen, Noah Logman, Justin Ung
+By: Tenzin Zomkyi, Christina Chen, Noah Logman, and Justin Ung
 ## Domain of Interest
 - Why are you interested in this field/domain?
 - What other examples of data driven project have you found related to this domain (share at least 3)?
