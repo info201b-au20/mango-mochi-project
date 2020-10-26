@@ -38,6 +38,7 @@ By: Tenzin Zomkyi, Christina Chen, Noah Logman, and Justin Ung
 - What questions (from above) can be answered using the data in this dataset?
    - What demographic(s) have faced the worst recession during COVID-19? With this data we will be able to find how different demographics have been affected by Covid.
 
+
 #### Dataset 2
 - Where did you download the data (e.g., a web URL)?
    - [Covid State Policy Data](https://www.openicpsr.org/openicpsr/project/119446/version/V38/view?path=/openicpsr/119446/fcr:versions/V38)
@@ -56,18 +57,19 @@ By: Tenzin Zomkyi, Christina Chen, Noah Logman, and Justin Ung
 - Where did you download the data (e.g., a web URL)?
    - [Labor Force Statistics Data](https://data.bls.gov/cgi-bin/surveymost?ln )
 - How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
-   - From the U.S. Bureau of Labor Statistics, Current Population Survey’s Labor Force Statistics
-   - The Current Population Survey (CPS) is a monthly survey of households conducted by the Bureau of Census for the Bureau of Labor Statistics. It provides a comprehensive body of data on the labor force, employment, unemployment, persons not in the labor force, hours of work, earnings, and other demographic and labor force characteristics.
-   - Interested dataframes - we can merge all these data into 1 big dataframe if needed, each heading can be a feature
-   - Unemployment Rate for:
-      - 16-19 Years, 20 Years & Over Men, 20 Years & Over Women, White, Black or African American, Asian, Hispanic or Latino, 25 Years & Over (Less than a High School Diploma, High School Graduates No College, Some College or Associate Degree, Bachelor's Degree and Higher)
-- How many observations (rows) are in your data?
-   - 11 observations
-- How many features (columns) are in the data?
-   - 12 features
+  - The dataset was obtained from the U.S. Bureau of Labor Statistics, Current Population Survey’s Labor Force Statistics.
+  - The Current Population Survey (CPS) is a monthly survey of households conducted by the Bureau of Census for the Bureau of Labor Statistics. It provides a comprehensive body of data on the labor force, employment, unemployment, persons not in the labor force, hours of work, earnings, and other demographic and labor force characteristics.
+  - This is a set of data containing many dataframes. Dataframes of interest can be merged into 1 big dataframe if needed, with each heading being a feature.
+  - Interested dataframes examples, Unemployment Rate for:
+    - 16-19 Years, 20 Years & Over - Men, 20 Years & Over - Women, White, Black or African American, Asian, Hispanic or Latino, 25 Years & Over (Less than a High School Diploma, High School Graduates No College, Some College or Associate Degree, Bachelor's Degree and Higher)
+- There are ~40 features, each mentioned feature has a data matrix containing statistics from 2010-2020, January-December.
+  - How many observations (rows) are in your data?
+    - 11 observations
+  - How many features (columns) are in the data?
+    - 12 features
 - What questions (from above) can be answered using the data in this dataset?
-   - Answers the demographics question, allowing analysis of which population is most severely impacted by the factors of age, race, gender, education, etc.
-   - Also contains data about industries as well as different type of employment (part time, full time, etc) that can aid the analysis of impacts on industries.
+  - Answers the demographics question, allowing analysis of which population is most severely impacted by the factors of age, race, gender, education, etc.
+  - Also contains data about industries as well as different type of employment (part time, full time, etc) that can aid the analysis of impacts on industries.
 
 
 #### Dataset 4
