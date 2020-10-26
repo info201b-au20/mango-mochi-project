@@ -2,9 +2,25 @@
 By: Tenzin Zomkyi, Christina Chen, Noah Logman, Justin Ung
 ## Domain of Interest
 - Why are you interested in this field/domain?
+
+In the midst of political, social, and economic polarization induced by COVID outbreaks, it would be interesting to explore the new *dynamics of the labor force*. Particularly, we will focus on the intersecting components of *employment and recession*: gender, race, age, income level, etc. By doing so, we hope to discover and understand the stories behind the numbers.
+
 - What other examples of data driven project have you found related to this domain (share at least 3)?
+
+1. [THE IMPACT OF COVID-19 ON GENDER EQUALITY](https://www.nber.org/system/files/working_papers/w26947/w26947.pdf)
+This NBER working paper delves into the implications for gender equality in COVID-19 times, focusing on the downturn and recovery of work. Written during the earlier phase of the outbreaks, the authors reveal that in contrast to “regular” recessions, women will face the most adverse effects. This conclusion derives from existing data involving childcare, volatility of work hours, occupational flexibility, and gender norms.
+
+2. [THE COVID-19 RECESSION IS THE MOST UNEQUAL IN MODERN U.S. HISTORY](https://www.washingtonpost.com/graphics/2020/business/coronavirus-recession-equality/)
+Storytelling with data, this case study emphasizes the overwhelming economic detriment of COVID-19 on low-wage, minority workers. Additionally, it reveals the demographic groups most impacted by the crisis in terms of job recovery - Black women, Black men, Hispanic men, Asian Americans, younger Americans, and people without degrees. Wondering what the key takeaway is? Read the title again.
+
+3. [BILLIONAIRE WEALTH, U.S. JOB LOSSES AND PANDEMIC PROFITEERS](https://inequality.org/great-divide/updates-billionaire-pandemic/)
+This ongoing project centers around data concerning COVID-19 and billionaire wealth. With real time updates, it showcases the magnitude of the gap between pandemic profiteers (both domestic and globally) and the working class. While billionaire wealth continues to skyrocket, certain demographics continue to face hardships in the food, housing, and unemployment sector.
+
 - What data-driven questions do you hope to answer about this domain (share at least 3)?
 
+  - What demographic(s) have faced the worst recession during COVID-19?
+  - Which industries faced the biggest economic downturn, and labor wise?
+  - What does unemployment rates compare to previous years and recessions?
 
 ## Finding Data
 ### Dataset 1
