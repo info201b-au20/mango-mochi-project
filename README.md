@@ -51,7 +51,7 @@ By: Tenzin Zomkyi, Christina Chen, Noah Logman, and Justin Ung
   - Answers the demographics question, allowing analysis of which population is most severely impacted by the factors of age, race, gender, education, etc.
   - Also contains data about industries as well as different type of employment (part time, full time, etc) that can aid the analysis of impacts on industries.
 
-#### Dataset 3: [Track The Recovery]((https://tracktherecovery.org/)
+#### Dataset 3: [Track The Recovery](https://github.com/OpportunityInsights/EconomicTracker)
 
   - How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
      - The data was collected from private data partners: PAYCHEX, Intuit, earnin, and Kronos. The data has information about the American population sorted by various demographics.
