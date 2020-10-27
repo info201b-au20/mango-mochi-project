@@ -1,5 +1,6 @@
 # Team Mango Mochi
 By: Tenzin Zomkyi, Christina Chen, Noah Logman, and Justin Ung
+
   : @tenzinzee, @cziyuan, @noahlogman, @ungjus
 ## Domain of Interest
 **Why are you interested in this field/domain?**
