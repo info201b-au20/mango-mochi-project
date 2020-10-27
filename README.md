@@ -7,11 +7,11 @@ By: Tenzin Zomkyi, Christina Chen, Noah Logman, and Justin Ung
 
 - **What other examples of data driven project have you found related to this domain (share at least 3)?**
 
-This [NBER working paper](https://www.nber.org/system/files/working_papers/w26947/w26947.pdf) delves into the implications for gender equality in COVID-19 times, focusing on the downturn and recovery of work. Written during the earlier phase of the outbreaks, the authors reveal that in contrast to “regular” recessions, women will face the most adverse effects. This conclusion derives from existing data involving childcare, volatility of work hours, occupational flexibility, and gender norms.
+  - This [NBER working paper](https://www.nber.org/system/files/working_papers/w26947/w26947.pdf) delves into the implications for gender equality in COVID-19 times, focusing on the downturn and recovery of work. Written during the earlier phase of the outbreaks, the authors reveal that in contrast to “regular” recessions, women will face the most adverse effects. This conclusion derives from existing data involving childcare, volatility of work hours, occupational flexibility, and gender norms.
 
-Storytelling with data, the [Washington Post]((https://www.washingtonpost.com/graphics/2020/business/coronavirus-recession-equality/)) emphasizes the overwhelming economic detriment of COVID-19 on low-wage, minority workers. Additionally, it reveals the demographic groups most impacted by the crisis in terms of job recovery - Black women, Black men, Hispanic men, Asian Americans, younger Americans, and people without degrees. The key takeaway is in the title: that the COVID-19 recession is the most unequal in modern U.S history.
+  - Storytelling with data, the [Washington Post]((https://www.washingtonpost.com/graphics/2020/business/coronavirus-recession-equality/)) emphasizes the overwhelming economic detriment of COVID-19 on low-wage, minority workers. Additionally, it reveals the demographic groups most impacted by the crisis in terms of job recovery - Black women, Black men, Hispanic men, Asian Americans, younger Americans, and people without degrees. The key takeaway is in the title: that the COVID-19 recession is the most unequal in modern U.S history.
 
-This ongoing project by [The Institute for Policy Studies](https://inequality.org/great-divide/updates-billionaire-pandemic/) centers around data concerning COVID-19 and billionaire wealth. With real time updates, it showcases the magnitude of the gap between pandemic profiteers (both domestic and globally) and the working class. While billionaire wealth continues to skyrocket, certain demographics continue to face hardships in the food, housing, and unemployment sector.
+  - This ongoing project by [The Institute for Policy Studies](https://inequality.org/great-divide/updates-billionaire-pandemic/) centers around data concerning COVID-19 and billionaire wealth. With real time updates, it showcases the magnitude of the gap between pandemic profiteers (both domestic and globally) and the working class. While billionaire wealth continues to skyrocket, certain demographics continue to face hardships in the food, housing, and unemployment sector.
 
 - **What data-driven questions do you hope to answer about this domain (share at least 3)?**
 
@@ -20,17 +20,8 @@ This ongoing project by [The Institute for Policy Studies](https://inequality.or
   - How does unemployment rates compare to previous years and recessions?
 
 ## Finding Data
-#### Dataset 1: [Track The Recovery]((https://tracktherecovery.org/))
-- How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
-   - The data was collected from private data partners: PAYCHEX, Intuit, earnin, and Kronos. The American population
-- How many observations (rows) are in your data?
-   - 11935 observations
-- How many features (columns) are in the data?
-   - 12 features
-- What questions (from above) can be answered using the data in this dataset?
-   - What demographic(s) have faced the worst recession during COVID-19? With this data we will be able to find how different demographics have been affected by Covid.
 
-#### Dataset 2: [Covid State Policy](https://www.openicpsr.org/openicpsr/project/119446/version/V38/view?path=/openicpsr/119446/fcr:versions/V38)
+#### Dataset 1: [Covid State Policy](https://www.openicpsr.org/openicpsr/project/119446/version/V38/view?path=/openicpsr/119446/fcr:versions/V38)
 
 - How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
    - The data was collected from a variety of sources including state mandates, orders, and official governor press releases. The data was then compiled by researchers at the Boston University School of Public Health. The data includes state policies on closures, shelter-in-place orders, housing protections, changes to Medicaid and SNAP, physical distancing closures, reopening and more.
@@ -43,7 +34,7 @@ This ongoing project by [The Institute for Policy Studies](https://inequality.or
    - We can also see how states are accommodating unemployed people through insurance and  medical care policies.
 
 
-#### Dataset 3: [Labor Force Statistics](https://data.bls.gov/cgi-bin/surveymost?ln )
+#### Dataset 2: [Labor Force Statistics](https://data.bls.gov/cgi-bin/surveymost?ln )
 
 - How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
   - The dataset was obtained from the U.S. Bureau of Labor Statistics, Current Population Survey’s Labor Force Statistics.
@@ -60,6 +51,16 @@ This ongoing project by [The Institute for Policy Studies](https://inequality.or
   - Answers the demographics question, allowing analysis of which population is most severely impacted by the factors of age, race, gender, education, etc.
   - Also contains data about industries as well as different type of employment (part time, full time, etc) that can aid the analysis of impacts on industries.
 
+#### Dataset 3: [Track The Recovery]((https://tracktherecovery.org/)
+
+  - How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
+     - The data was collected from private data partners: PAYCHEX, Intuit, earnin, and Kronos. The data has information about the American population sorted by various demographics.
+  - How many observations (rows) are in your data?
+     - 11935 observations
+  - How many features (columns) are in the data?
+     - 12 features
+  - What questions (from above) can be answered using the data in this dataset?
+     - What demographic(s) have faced the worst recession during COVID-19? With this data we will be able to find how different demographics have been affected by Covid.
 
 #### Dataset 4: [Billionaire Data](https://docs.google.com/spreadsheets/d/1GcxHDqshl4b57ZgZd8OZ9O1d-BhyqTLcWo_emqVYvP0/edit)
 
