@@ -46,18 +46,19 @@ This ongoing project by [The Institute for Policy Studies](https://inequality.or
 #### Dataset 3: [Labor Force Statistics](https://data.bls.gov/cgi-bin/surveymost?ln )
 
 - How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
-   - From the U.S. Bureau of Labor Statistics, Current Population Survey’s Labor Force Statistics
-   - The Current Population Survey (CPS) is a monthly survey of households conducted by the Bureau of Census for the Bureau of Labor Statistics. It provides a comprehensive body of data on the labor force, employment, unemployment, persons not in the labor force, hours of work, earnings, and other demographic and labor force characteristics.
-   - Interested dataframes - we can merge all these data into 1 big dataframe if needed, each heading can be a feature
-   - Unemployment Rate for:
-      - 16-19 Years, 20 Years & Over Men, 20 Years & Over Women, White, Black or African American, Asian, Hispanic or Latino, 25 Years & Over (Less than a High School Diploma, High School Graduates No College, Some College or Associate Degree, Bachelor's Degree and Higher)
-- How many observations (rows) are in your data?
-   - 11 observations
-- How many features (columns) are in the data?
-   - 12 features
+  - The dataset was obtained from the U.S. Bureau of Labor Statistics, Current Population Survey’s Labor Force Statistics.
+  - The Current Population Survey (CPS) is a monthly survey of households conducted by the Bureau of Census for the Bureau of Labor Statistics. It provides a comprehensive body of data on the labor force, employment, unemployment, persons not in the labor force, hours of work, earnings, and other demographic and labor force characteristics.
+  - This is a set of data containing many dataframes. Dataframes of interest can be merged into 1 big dataframe if needed, with each heading being a feature.
+  - Interested dataframes examples, Unemployment Rate for:
+    - 16-19 Years, 20 Years & Over - Men, 20 Years & Over - Women, White, Black or African American, Asian, Hispanic or Latino, 25 Years & Over (Less than a High School Diploma, High School Graduates No College, Some College or Associate Degree, Bachelor's Degree and Higher)
+- There are ~40 features, each mentioned feature has a data matrix containing statistics from 2010-2020, January-December.
+  - How many observations (rows) are in your data?
+    - 11 observations
+  - How many features (columns) are in the data?
+    - 12 features
 - What questions (from above) can be answered using the data in this dataset?
-   - Answers the demographics question, allowing analysis of which population is most severely impacted by the factors of age, race, gender, education, etc.
-   - Also contains data about industries as well as different type of employment (part time, full time, etc) that can aid the analysis of impacts on industries.
+  - Answers the demographics question, allowing analysis of which population is most severely impacted by the factors of age, race, gender, education, etc.
+  - Also contains data about industries as well as different type of employment (part time, full time, etc) that can aid the analysis of impacts on industries.
 
 
 #### Dataset 4: [Billionaire Data](https://docs.google.com/spreadsheets/d/1GcxHDqshl4b57ZgZd8OZ9O1d-BhyqTLcWo_emqVYvP0/edit)
