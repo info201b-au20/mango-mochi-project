@@ -1,5 +1,6 @@
 # Team Mango Mochi
 By: Tenzin Zomkyi, Christina Chen, Noah Logman, and Justin Ung
+  : @tenzinzee, @cziyuan, @noahlogman, @ungjus
 ## Domain of Interest
 **Why are you interested in this field/domain?**
 
@@ -22,7 +23,7 @@ By: Tenzin Zomkyi, Christina Chen, Noah Logman, and Justin Ung
 **Datasets:**
 1. [Covid State Policy](https://www.openicpsr.org/openicpsr/project/119446/version/V38/view?path=/openicpsr/119446/fcr:versions/V38)
 2. [Labor Force Statistics](https://data.bls.gov/cgi-bin/surveymost?ln )
-3. [Track The Recovery]((https://tracktherecovery.org/)
+3. [Track The Recovery](https://tracktherecovery.org/)
 4. [Billionaire Data](https://docs.google.com/spreadsheets/d/1GcxHDqshl4b57ZgZd8OZ9O1d-BhyqTLcWo_emqVYvP0/edit)
 
 **How was the data collected or generated? Who or what the data is about?**
