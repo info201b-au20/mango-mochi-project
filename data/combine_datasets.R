@@ -67,7 +67,7 @@ Number Unemployed For Less Than 5 weeks <-
 # Last parts of matrixes
 
 Unemployment_Rate_White <- 
-read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - White - LNS14000003.xlsx")
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - White - LNS14000003.xlsx")
 
 Unemployment_Rate_16_19_Years_White <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 16-19 Years - LNS14000012.xlsx")
@@ -98,6 +98,7 @@ Unemployment_Rate_Black_or_African_American <-
 
 Unemployment_Rate <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - LNS14000000.xlsx")
+
 
 
 
