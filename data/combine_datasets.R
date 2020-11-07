@@ -34,5 +34,71 @@ Employment_Level_Nonag_Industries_With_a_Job_not_at_Work_Bad_Weather <-
 
 # Second 10 datasets 
 
+Employment_Population_Ratio <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Employment-Population Ratio - LNS12300000.xlsx")
+
+Marginally_Attached_to_Labor_Force <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Marginally Attached to Labor Force - LNS15026642.xlsx")
+
+Median_Weeks_Unemployed <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Median Weeks Unemployed - LNS13008276.xlsx")
+
+Multiple_Jobholders_as_a_Percent_of_Total_Employed <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Multiple Jobholders as a Percent of Total Employed - LNS12026620.xlsx")
+
+Multiple_Jobholders_Level <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Multiple Jobholders Level - LNS12026619.xlsx")
+
+Not_in_Labor_Force <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Not in Labor Force - LNS15000000.xlsx")
+
+Number_Unemployed_For_5_14_Weeks <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Number Unemployed For 5-14 Weeks - LNS13008756.xlsx")
+
+Number_Unemployed_For_15_Weeks_Over <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Number Unemployed For 15 Weeks & Over - LNS13008516.xlsx")
+
+Number_Unemployed_For_27_Weeks_Over <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Number Unemployed For 27 Weeks & Over - LNS13008636.xlsx")
+
+Number Unemployed For Less Than 5 weeks <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Number Unemployed For Less Than 5 weeks - LNS13008396.xlsx")
+
+# Last parts of matrixes
+
+Unemployment_Rate_White <- 
+read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - White - LNS14000003.xlsx")
+
+Unemployment_Rate_16_19_Years_White <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 16-19 Years - LNS14000012.xlsx")
+
+Unemployment_Rate_20_Years_and_Over_Men <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 20 Years & Over Men - LNS14000025.xlsx")
+
+Unemployment_Rate_20_Years_and_Over_Women <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 20 Years & Over Women - LNS14000026.xlsx")
+
+Unemployment_Rate_25_Years_and_Over_Bachelors_Degree_and_Higher <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 25 Years & Over, Bachelor's Degree and Higher - LNS14027662.xlsx")
+
+Unemployment_Rate_25_Years_and_Over_High_School_Graduates_No_College <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 25 Years & Over, High School Graduates No College - LNS14027660.xlsx")
+
+Unemployment_Rate_25_Years_and_Over_Less_than_a_High_School_Diploma <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 25 Years & Over, Less than a High School Diploma - LNS14027659.xlsx")
+
+Unemployment_Rate_25_Years_Over_Some_College_or_Associate_Degree <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 25 Years & Over, Some College or Associate Degree - LNS14027689.xlsx")
+
+Unemployment_Rate_Asian <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - Asian - LNS14032183.xlsx")
+
+Unemployment_Rate_Black_or_African_American <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - Hispanic or Latino - LNS14000009.xlsx")
+
+Unemployment_Rate <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - LNS14000000.xlsx")
+
+
 
 
