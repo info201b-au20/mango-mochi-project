@@ -5,7 +5,8 @@
 # Matrix 1-5 
 Alternative_measure_of_labor_underutilization <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Alternative measure of labor underutilization U-6 - LNS13327709.xlsx")
-
+long_Alternative_measure_of_labor_underutilization <- Alternative_measure_of_labor_underutilization %>% gather(Month, Alternative_measure_of_labor_underutilization, Jan:Dec)
+  
 Average_Weeks_Unemployed <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Average Weeks Unemployed - LNS13008275.xlsx")
 
@@ -92,44 +93,117 @@ Unemployment_Level_New_Entrants <-
 Unemployment_Level_Reentrants_To_Labor_Force <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Level Reentrants To Labor Force - LNS13023557.xlsx")
 
+
+
+# Matrixes to use_______________________________________________________________
 Unemployment_Rate_16_19_Years <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 16-19 Years - LNS14000012.xlsx")
+Unemployment_Rate_16_19_Years <- Unemployment_Rate_16_19_Years %>% gather(Month, Unemployment_Rate_16_19_Years, Jan:Dec)
+
 
 Unemployment_Rate_20_Years_Over_Men <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 20 Years & Over Men - LNS14000025.xlsx")
+Unemployment_Rate_20_Years_Over_Men <- Unemployment_Rate_20_Years_Over_Men %>% gather(Month, Unemployment_Rate_20_Years_Over_Men, Jan:Dec)
+
 
 # Matrixes 31-35
 Unemployment_Rate_20_Years_Over_Women <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 20 Years & Over Women - LNS14000026.xlsx")
+Unemployment_Rate_20_Years_Over_Women <- Unemployment_Rate_20_Years_Over_Women %>% gather(Month, Unemployment_Rate_20_Years_Over_Women, Jan:Dec)
+
 
 Unemployment_Rate_25_Years_Over_Bachelor_s_Degree_and_Higher <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 25 Years & Over, Bachelor's Degree and Higher - LNS14027662.xlsx")
+Unemployment_Rate_25_Years_Over_Bachelor_s_Degree_and_Higher <- Unemployment_Rate_25_Years_Over_Bachelor_s_Degree_and_Higher %>% gather(Month, Unemployment_Rate_25_Years_Over_Bachelor_s_Degree_and_Higher, Jan:Dec)
+
 
 Unemployment_Rate_25_Years_Over_High_School_Graduates_No_College <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 25 Years & Over, High School Graduates No College - LNS14027660.xlsx")
+Unemployment_Rate_25_Years_Over_High_School_Graduates_No_College <- Unemployment_Rate_25_Years_Over_High_School_Graduates_No_College %>% gather(Month, Unemployment_Rate_25_Years_Over_High_School_Graduates_No_College, Jan:Dec)
+
 
 Unemployment_Rate_25_Years_Over_Less_than_a_High_School_Diploma <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 25 Years & Over, Less than a High School Diploma - LNS14027659.xlsx")
+Unemployment_Rate_25_Years_Over_Less_than_a_High_School_Diploma <- Unemployment_Rate_25_Years_Over_Less_than_a_High_School_Diploma %>% gather(Month, Unemployment_Rate_25_Years_Over_Less_than_a_High_School_Diploma, Jan:Dec)
+
 
 Unemployment_Rate_25_Years_Over_Some_College_or_Associate_Degree <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 25 Years & Over, Some College or Associate Degree - LNS14027689.xlsx")
+Unemployment_Rate_25_Years_Over_Some_College_or_Associate_Degree <- Unemployment_Rate_25_Years_Over_Some_College_or_Associate_Degree %>% gather(Month, Unemployment_Rate_25_Years_Over_Some_College_or_Associate_Degree, Jan:Dec)
+
 
 # Matrixes 35-40
 Unemployment_Rate_Asian <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - Asian - LNS14032183.xlsx")
+Unemployment_Rate_Asian <- Unemployment_Rate_Asian %>% gather(Month, Unemployment_Rate_Asian, Jan:Dec)
+
 
 Unemployment_Rate_Black_or_African_American <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - Black or African American - LNS14000006.xlsx")
+Unemployment_Rate_Black_or_African_American <- Unemployment_Rate_Black_or_African_American %>% gather(Month, Unemployment_Rate_Black_or_African_American, Jan:Dec)
+
 
 Unemployment_Rate_Hispanic_or_Latino <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - Hispanic or Latino - LNS14000009.xlsx")
+Unemployment_Rate_Hispanic_or_Latino <- Unemployment_Rate_Hispanic_or_Latino %>% gather(Month, Unemployment_Rate_Hispanic_or_Latino, Jan:Dec)
+
 
 Unemployment_Rate <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - LNS14000000.xlsx")
+Unemployment_Rate <- Unemployment_Rate %>% gather(Month, Unemployment_Rate, Jan:Dec)
+
 
 Unemployment_Rate_White <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - White - LNS14000003.xlsx")
+Unemployment_Rate_White <- Unemployment_Rate_White %>% gather(Month, Unemployment_Rate_White, Jan:Dec)
+
+# Making it into 1 big dataframe
+
+# Making interesed columns into a vector 
+Year <- Unemployment_Rate_16_19_Years$Year
+Month <- Unemployment_Rate_16_19_Years$Month
+Unemployment_Rate_16_19_Years <- Unemployment_Rate_16_19_Years$Unemployment_Rate_16_19_Years
+Unemployment_Rate_20_Years_Over_Men <- Unemployment_Rate_20_Years_Over_Men$Unemployment_Rate_20_Years_Over_Men
+Unemployment_Rate_20_Years_Over_Women <- Unemployment_Rate_20_Years_Over_Women$Unemployment_Rate_20_Years_Over_Women
+Unemployment_Rate_25_Years_Over_Bachelor_s_Degree_and_Higher <- Unemployment_Rate_25_Years_Over_Bachelor_s_Degree_and_Higher$Unemployment_Rate_25_Years_Over_Bachelor_s_Degree_and_Higher
+Unemployment_Rate_25_Years_Over_High_School_Graduates_No_College <- Unemployment_Rate_25_Years_Over_High_School_Graduates_No_College$Unemployment_Rate_25_Years_Over_High_School_Graduates_No_College
+Unemployment_Rate_25_Years_Over_Less_than_a_High_School_Diploma <- Unemployment_Rate_25_Years_Over_Less_than_a_High_School_Diploma$Unemployment_Rate_25_Years_Over_Less_than_a_High_School_Diploma
+Unemployment_Rate_25_Years_Over_Some_College_or_Associate_Degree <- Unemployment_Rate_25_Years_Over_Some_College_or_Associate_Degree$Unemployment_Rate_25_Years_Over_Some_College_or_Associate_Degree
+Unemployment_Rate_Asian <- Unemployment_Rate_Asian$Unemployment_Rate_Asian
+Unemployment_Rate_Black_or_African_American <- Unemployment_Rate_Black_or_African_American$Unemployment_Rate_Black_or_African_American
+Unemployment_Rate_Hispanic_or_Latino <- Unemployment_Rate_Hispanic_or_Latino$Unemployment_Rate_Hispanic_or_Latino
+Unemployment_Rate <- Unemployment_Rate$Unemployment_Rate
+Unemployment_Rate_White <- Unemployment_Rate_White$Unemployment_Rate_White
+
+# One dataframe of all the necessary columns 
+Unemployment <- cbind(Year, 
+                      Month, 
+                      Unemployment_Rate_16_19_Years, 
+                      Unemployment_Rate_20_Years_Over_Men, 
+                      Unemployment_Rate_20_Years_Over_Women,
+                      Unemployment_Rate_25_Years_Over_Bachelor_s_Degree_and_Higher, 
+                      Unemployment_Rate_25_Years_Over_High_School_Graduates_No_College, 
+                      Unemployment_Rate_25_Years_Over_Less_than_a_High_School_Diploma, 
+                      Unemployment_Rate_25_Years_Over_Some_College_or_Associate_Degree, 
+                      Unemployment_Rate_Asian, 
+                      Unemployment_Rate_Black_or_African_American, 
+                      Unemployment_Rate_Hispanic_or_Latino, 
+                      Unemployment_Rate, 
+                      Unemployment_Rate_White
+                      )
+
+# Should we arrange by year, how?
+# Unemployment <- Unemployment %>% arrange(Year)
 
 
+# Others 
+# Format to make years the rowname
+rownames <- Alternative_measure_of_labor_underutilization$Year
+Alternative_measure_of_labor_underutilization <- Alternative_measure_of_labor_underutilization[, 2:13]
+rownames(Alternative_measure_of_labor_underutilization) <- rownames
+View(Alternative_measure_of_labor_underutilization)
 
-
+# Format to turn the wide dataframe into long
+Unemployment_Rate <- 
+  read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - LNS14000000.xlsx")
+Unemployment_Rate <- Unemployment_Rate %>% gather(Month, Unemployment_Rate, Jan:Dec)
