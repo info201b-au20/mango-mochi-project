@@ -1,6 +1,15 @@
+################ Overview ############### 
 # Labor Force Statistics from the Current Population Survey dataset 
-# Sent session to current directory, which is the data folder
-# Matrixes are alphabetically, same order as github 
+# Matrixes are alphabetical, same order as github 
+
+######## Loading data ############
+# Set session to current directory, which is the data folder
+# Run from line 9 to 201
+
+# Load packages
+library(readxl)
+library(tidyr)
+library(dplyr)
 
 # Matrix 1-5 
 Alternative_measure_of_labor_underutilization <- 
@@ -94,7 +103,6 @@ Unemployment_Level_Reentrants_To_Labor_Force <-
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Level Reentrants To Labor Force - LNS13023557.xlsx")
 
 
-
 # Matrixes to use_______________________________________________________________
 Unemployment_Rate_16_19_Years <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 16-19 Years - LNS14000012.xlsx")
@@ -176,7 +184,7 @@ Unemployment_Rate <- Unemployment_Rate$Unemployment_Rate
 Unemployment_Rate_White <- Unemployment_Rate_White$Unemployment_Rate_White
 
 # One dataframe of all the necessary columns 
-Unemployment <- cbind(Year, 
+Unemployment <- as.data.frame(cbind(Year, 
                       Month, 
                       Unemployment_Rate_16_19_Years, 
                       Unemployment_Rate_20_Years_Over_Men, 
@@ -190,7 +198,7 @@ Unemployment <- cbind(Year,
                       Unemployment_Rate_Hispanic_or_Latino, 
                       Unemployment_Rate, 
                       Unemployment_Rate_White
-                      )
+                      ))
 
 # Should we arrange by year, how?
 # Unemployment <- Unemployment %>% arrange(Year)
