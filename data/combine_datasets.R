@@ -200,8 +200,8 @@ Unemployment <- as.data.frame(cbind(Year,
                       Unemployment_Rate_White
                       ))
 
-# Unemployment <- Unemployment[c(-252, -231, -210), ]
-# save(Unemployment, file = "Unemployment.RData")
+Unemployment <- Unemployment[c(-252, -231, -210), ]
+save(Unemployment, file = "Unemployment.RData")
 
 
 # Should we arrange by year, how?
