@@ -1,6 +1,8 @@
 # This file calculates summary information to be included
 library(tidyverse)
 
+Unemployment <- load("~/Desktop/info_201/mango-mochi-project/data/Unemployment.RData")
+
 # A function that takes in a dataset and returns a list of info about it:
 summary_info <- list()
 summary_info$num_observations <- nrow(Unemployment) # rows, 
