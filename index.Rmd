@@ -1,0 +1,44 @@
+---
+title: "Labor Force Statistics Dataset"
+output: html_document
+---
+```{r include = FALSE} 
+source("scripts/education.R")
+source("scripts/gender.R")
+source("scripts/race.R")
+source("scripts/summary.R")
+source("scripts/table_summary.R")
+
+```
+This is our report the Labor Force Statistics Dataset from the [U.S. Bureau of Labor Statistics](https://data.bls.gov/cgi-bin/surveymost?ln). 
+
+Below is a table displaying the pertinent observations we found. ......
+
+```{r echo = FALSE}
+# Put the variable name for your chart below this line. (the file is sourced, so just having the variable will display the chart.)
+
+```
+
+Below is a chart intended to show the relationship between Education and Unemployment Rate: 
+
+```{r echo = FALSE}
+# Put the variable name for your chart below this line. (the file is sourced, so just having the variable will display the chart.)
+
+```
+
+
+
+Below is a chart intended to show the relationship between Gender and Unemployment Rate: 
+```{r echo = FALSE}
+# Put the variable name for your chart below this line 
+
+```
+
+
+
+Below is a chart intended to show the relationship between Race and Unemployment Rate: 
+
+```{r echo = FALSE}
+# Put the variable name for your chart below this line 
+
+```
