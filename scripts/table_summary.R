@@ -1,8 +1,9 @@
 #  creates a table of summary information to be included
 # load("~/Desktop/info_201/mango-mochi-project/data/Unemployment.RData")
 
-# A table of the maximum unemployment rate of each feature by year. 
 library(tidyverse)
+
+# A table of the maximum unemployment rate of each feature by year. 
 Unemployment_summary <- Unemployment %>% 
   group_by(Year) %>% 
   summarize(
@@ -17,3 +18,7 @@ Unemployment_summary <- Unemployment %>%
     hispanic_or_latino = max(Unemployment_Rate_Hispanic_or_Latino), 
     white = max(Unemployment_Rate_White)
             )
+
+
+
+

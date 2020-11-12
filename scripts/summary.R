@@ -1,14 +1,14 @@
 # This file calculates summary information to be included
 library(tidyverse)
 
-Unemployment <- load("~/Desktop/info_201/mango-mochi-project/data/Unemployment.RData")
+load("~/Desktop/info_201/mango-mochi-project/data/Unemployment.RData")
+View(summary_info)
 
 # A function that takes in a dataset and returns a list of info about it:
 summary_info <- list()
-summary_info$num_observations <- nrow(Unemployment) # rows, 
-summary_info$num_features <- ncol(Unemployment)
+summary_info$num_observations <- nrow(Unemployment) # number of rows
+summary_info$num_features <- ncol(Unemployment) # number of columns
 columns <- colnames(Unemployment)
-View(columns)
 
 
 # Max unemployment rate for men
@@ -17,7 +17,7 @@ summary_info$highest_unemployment_men <- Unemployment %>%
     Unemployment_Rate_20_Years_Over_Men == max(	
       Unemployment_Rate_20_Years_Over_Men, na.rm = T)
   ) %>% 
-  pull(unique(Unemployment_Rate_20_Years_Over_Men))
+  pull(Unemployment_Rate_20_Years_Over_Men)
 
 
 # Max unemployment rate for women 
