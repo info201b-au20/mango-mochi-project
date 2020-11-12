@@ -185,7 +185,7 @@ Unemployment_Rate_White <- Unemployment_Rate_White$Unemployment_Rate_White
 
 # One dataframe of all the necessary columns 
 Unemployment <- as.data.frame(cbind(Year, 
-                      Month, f
+                      Month, 
                       Unemployment_Rate_16_19_Years, 
                       Unemployment_Rate_20_Years_Over_Men, 
                       Unemployment_Rate_20_Years_Over_Women,
@@ -200,7 +200,7 @@ Unemployment <- as.data.frame(cbind(Year,
                       Unemployment_Rate_White
                       ))
 
-Unemployment <- Unemployment[c(-252, -231, -210), ]
+Unemployment <- Unemployment[c(-180, -198, -216), ]
 save(Unemployment, file = "Unemployment.RData")
 
 
