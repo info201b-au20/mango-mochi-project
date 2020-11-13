@@ -15,24 +15,24 @@ In the midst of political, social, and economic polarization induced by COVID ou
 
 This is our report of the Labor Force Statistics Dataset from the [U.S. Bureau of Labor Statistics](https://data.bls.gov/cgi-bin/surveymost?ln), Current Population Survey’s Labor Force Statistics. The Current Population Survey (CPS) is a monthly survey of households conducted by the Bureau of Census for the Bureau of Labor Statistics. It provides a comprehensive body of data on the labor force, employment, unemployment, persons not in the labor force, hours of work, earnings, and other demographic and labor force characteristics.
 
-Some quick information that we extracted from our summary information functions was that 
-```{r echo = FALSE}
-summary_info
-```
+Some quick information that we extracted from our summary information functions was that women had a higher max unemployment rate of 15.5% versus males with 13%. We also found that among people with different education levels, those those with less education (less than high school diploma or only highschool diploma) had higher max unemployment rates, 17.3% to 21.2% than those with higher education (some college or bachelors and higher), 8.4% to 15%. Finally among different races, hispanic/latino Americans had the highest max unemployment rate of 18.9% while white Americans had the lowest unemployment rate of just 14.2%. Interestingly all these max unemployment rates were in 2020, showing the devastating impact COVID has had on all Americans. 
 
-
-Below is a table displaying the pertinent observations we found. ......
+Below is a unemployment table with features that reflect questions that we are trying to answer. Specifically, since we are primarily interested in the on the impact COVID had on American with different demographics, there are columns of sex, race and education. The table shows the max unemployment rate of each year. We sorted the data in descending year order so it is easy to compare 2020 with previous years. As you can see, the unemployment rates of 2020 is significantly higher than the previous years. Even compared to the regression in 2008, 2020 unemployment is significantly higher
 
 ```{r echo = FALSE}
 # Put the variable name for your chart below this line. (the file is sourced, so just having the variable will display the chart.)
-head(Unemployment_summary)
+Unemployment_summary %>% 
+  filter(Year > 2016 | Year > 2007 & Year < 2012)
 ```
 
 Below is a chart intended to show the relationship between Education and Unemployment Rate: 
 
+During times like these 
+As we can see, there was a significant spike in unemployment in 2020 based on education levels. Notably, those with lower education levels, some high school or just high school, were hit the worst by COVID-19 as their unemployment rates skyrocketed. On the other hand, those with higher education, were not as significantly impacted.
+
 ```{r echo = FALSE}
 # Put the variable name for your chart below this line. (the file is sourced, so just having the variable will display the chart.)
-
+education_graph
 ```
 
 

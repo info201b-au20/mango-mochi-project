@@ -5,7 +5,7 @@ library(tidyverse)
 
 unemployment <- read.csv("data/unemployment.csv")
 # A table of the maximum unemployment rate of each feature by year.
-unemployment <- unemployment %>% drop_na()
+Unemployment_summary <- unemployment %>% drop_na()
 Unemployment_summary <- unemployment %>% 
   group_by(Year) %>% 
   summarize(
