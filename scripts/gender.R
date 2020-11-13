@@ -2,11 +2,11 @@
 # ############# loading data #############
 # ----------------------------------------
 
-library(dplyr)
-library(tidyr)
-library(ggplot2)
-library(plotly)
-library(rbokeh)
+#library(dplyr)
+#library(tidyr)
+#library(ggplot2)
+#library(plotly)
+#library(rbokeh)
 
 # load unemployment data, set session to data file
 unemployment <- read.csv("../data/unemployment.csv")
@@ -39,7 +39,7 @@ gender_all <- gender_all %>%
 
 gender_all <- gender_all %>%
   filter(!is.na(unemployment_rate)) #%>%
-  #arrange(unemployment_rate)
+#arrange(unemployment_rate)
 
 # --------------------------------------------
 # ######## rate by 2020 month, gender ########
