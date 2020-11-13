@@ -103,6 +103,10 @@ Unemployment_Level_Reentrants_To_Labor_Force <-
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Level Reentrants To Labor Force - LNS13023557.xlsx")
 
 
+
+
+################################################################################
+################################################################################
 # Matrixes to use_______________________________________________________________
 Unemployment_Rate_16_19_Years <- 
   read_excel("Labor Force Statistics from the Current Population Survey, 40 matrixes/Unemployment Rate - 16-19 Years - LNS14000012.xlsx")
@@ -201,6 +205,7 @@ Unemployment <- as.data.frame(cbind(Year,
                       ))
 
 Unemployment <- Unemployment[c(-180, -198, -216), ]
+write.csv(Unemployment, file = "Uemployment_2003-2020.csv")
 save(Unemployment, file = "Unemployment.RData")
 
 

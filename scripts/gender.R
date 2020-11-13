@@ -19,7 +19,6 @@ gender <- unemployment %>%
 # ######### rate by date, gender #########
 # ----------------------------------------
 
-# add manipulated `date` col
 gender_all <- gender %>%
   mutate(date = as.Date(paste(Year, Month, "01", sep = "-"),
                         format = "%Y-%b-%d"))
@@ -65,8 +64,7 @@ gender_2020 <- gender_2020 %>%
 
 # create overall plot 
 # rate by date, gender
-gender_all_plot <- 
-  ggplot(data = gender_all, aes(x = date, y = unemployment_rate)) +
+gender_all_plot <- ggplot(data = gender_all, aes(x = date, y = unemployment_rate)) +
   geom_line(aes(color = gender_type), size = 1) + 
   labs(title = "Unemployment Rate (20 Years or Older)", 
        x = "Year", y = "Unemployment Rate")
@@ -108,7 +106,6 @@ chart_type <- list(
     )
   )
 )
-
 hover <- list(
   x = 1.65,
   y = .7,
@@ -125,7 +122,6 @@ hover <- list(
     )
   )
 )
-
 # Create interactive plot with plotly
 # symbol = ~gender_type,
 # fill = "tozeroy"
@@ -177,9 +173,12 @@ plot_ly(
 
 
 
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+>>>>>>> d78a965e7b17b6c3a00edc89ddcb400947289727
