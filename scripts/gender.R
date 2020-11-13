@@ -1,46 +1,95 @@
+# ----------------------------------------
+# ############# loading data #############
+# ----------------------------------------
+
 library(dplyr)
+library(tidyr)
 library(ggplot2)
 library(plotly)
 library(rbokeh)
 
-# load unemployment data
+# load unemployment data, set session to data file
 unemployment <- read.csv("../data/unemployment.csv")
 
 # create main dataframe `gender`
 gender <- unemployment %>%
   select(Year, Month, 5:6) 
 
+# ----------------------------------------
+# ######### rate by date, gender #########
+# ----------------------------------------
+
 # add manipulated `date` col
-gender <- gender %>%
+gender_all <- gender %>%
   mutate(date = as.Date(paste(Year, Month, "01", sep = "-"),
                         format = "%Y-%b-%d"))
 
 # remove `Year` and `Date` cols
-gender <- gender %>%
+gender_all <- gender_all %>%
   select(date, 3:4)
 
 # rename cols of interest
-gender <- gender %>%
+gender_all <- gender_all %>%
   rename(men = Unemployment_Rate_20_Years_Over_Men,
          women = Unemployment_Rate_20_Years_Over_Women)
 
 # aggregate/group gender unemployment rates
-gender <- gender %>%
+gender_all <- gender_all %>%
   gather(gender_type, unemployment_rate, 2:3) 
 
-gender <- gender %>%
+gender_all <- gender_all %>%
   filter(!is.na(unemployment_rate)) #%>%
   #arrange(unemployment_rate)
 
-# create plot 
+# --------------------------------------------
+# ######## rate by 2020 month, gender ########
+# --------------------------------------------
+
+# comments to be updated for this section
+gender_2020 <- unemployment %>%
+  select(Year, Month, 5:6) 
+
+gender_2020 <- gender_2020 %>%
+  filter(Year == 2020) %>%
+  select(-Year)
+
+gender_2020 <- gender_2020 %>%
+  rename(men = Unemployment_Rate_20_Years_Over_Men,
+         women = Unemployment_Rate_20_Years_Over_Women) %>%
+  gather(gender_type, unemployment_rate, 2:3) %>%
+  filter(!is.na(unemployment_rate)) #%>%
+
+# -------------------------------------------
+# ########### data visualization ############
+# -------------------------------------------
+
+# create overall plot 
+# rate by date, gender
 gender_all_plot <- 
-  ggplot(data = gender, aes(x = date, y = unemployment_rate)) +
+  ggplot(data = gender_all, aes(x = date, y = unemployment_rate)) +
   geom_line(aes(color = gender_type), size = 1) + 
   labs(title = "Unemployment Rate (20 Years or Older)", 
        x = "Year", y = "Unemployment Rate")
 
-# ----------------------------------------------------------
+gender_all_plot
 
+# create 2020 plot
+# rate by month, gender
+# also shows gender gap 
+gender_2020_plot <- 
+  ggplot(data = gender_2020, aes(x = Month, y = unemployment_rate)) +
+  geom_point(aes(color = gender_type), size = 2) + 
+  geom_line() + 
+  labs(title = "Unemployment Rate (20 Years or Older)", 
+       x = "Month (2020)", y = "Unemployment Rate")
+
+gender_2020_plot
+
+# -------------------------------------------
+# ############# miscellaneous ##############
+# -------------------------------------------
+
+# snagged from justin to try out
 # create interactive plot
 chart_type <- list(
   x = 1.35,
@@ -81,7 +130,7 @@ hover <- list(
 # symbol = ~gender_type,
 # fill = "tozeroy"
 plot_ly(
-  data = gender,
+  data = gender_all,
   x = ~date,
   y = ~unemployment_rate,
   type = "scatter",
