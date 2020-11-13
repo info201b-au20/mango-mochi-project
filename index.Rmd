@@ -10,13 +10,22 @@ source("scripts/summary.R")
 source("scripts/table_summary.R")
 
 ```
-This is our report the Labor Force Statistics Dataset from the [U.S. Bureau of Labor Statistics](https://data.bls.gov/cgi-bin/surveymost?ln). 
+
+In the midst of political, social, and economic polarization induced by COVID outbreaks, it would be interesting to explore the new dynamics of the labor force. Particularly, we will focus on the intersecting components of *employment and recession*: gender, race, age, income level, etc. By doing so, we hope to discover and understand the stories behind the numbers.
+
+This is our report of the Labor Force Statistics Dataset from the [U.S. Bureau of Labor Statistics](https://data.bls.gov/cgi-bin/surveymost?ln), Current Population Survey’s Labor Force Statistics. The Current Population Survey (CPS) is a monthly survey of households conducted by the Bureau of Census for the Bureau of Labor Statistics. It provides a comprehensive body of data on the labor force, employment, unemployment, persons not in the labor force, hours of work, earnings, and other demographic and labor force characteristics.
+
+Some quick information that we extracted from our summary information functions was that 
+```{r echo = FALSE}
+summary_info
+```
+
 
 Below is a table displaying the pertinent observations we found. ......
 
 ```{r echo = FALSE}
 # Put the variable name for your chart below this line. (the file is sourced, so just having the variable will display the chart.)
-
+head(Unemployment_summary)
 ```
 
 Below is a chart intended to show the relationship between Education and Unemployment Rate: 

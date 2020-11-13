@@ -1,10 +1,12 @@
 library(dplyr)
 library(ggplot2)
+library(tidyverse)
 library(plotly)
 library(rbokeh)
 
 # load unemployment data
-unemployment <- read.csv("../data/unemployment.csv")
+#setwd("~/Documents/info201/mango-mochi-project") 
+unemployment <- read.csv("data/unemployment.csv")
 
 # select education col
 education <- unemployment %>%
@@ -38,6 +40,9 @@ education <- education %>%
 
 education <- education %>%
   filter(!is.na(unemployment_rate))
+
+sapply(education, typeof)
+
 
 # create plot with ggplot
 ggplot(data = education, aes(x = date, y = unemployment_rate)) +
@@ -102,7 +107,7 @@ hover <- list(
 # Create interactive plot with plotly
 # symbol = ~education_type,
 # fill = "tozeroy"
-plot_ly(
+education_graph <- plot_ly(
   data = education,
   x = ~date,
   y = ~unemployment_rate,

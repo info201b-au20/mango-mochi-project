@@ -8,12 +8,12 @@ library(ggplot2)
 library(plotly)
 library(rbokeh)
 
-# load unemployment data, set session to data file
-unemployment <- read.csv("../data/unemployment.csv")
+# load unemployment data
+unemployment <- read.csv("data/unemployment.csv")
 
 # create main dataframe `gender`
 gender <- unemployment %>%
-  select(Year, Month, 5:6) 
+  select(Year, Month, 5:6)
 
 # ----------------------------------------
 # ######### rate by date, gender #########
@@ -35,7 +35,7 @@ gender_all <- gender_all %>%
 
 # aggregate/group gender unemployment rates
 gender_all <- gender_all %>%
-  gather(gender_type, unemployment_rate, 2:3) 
+  gather(gender_type, unemployment_rate, 2:3)
 
 gender_all <- gender_all %>%
   filter(!is.na(unemployment_rate)) #%>%
@@ -47,7 +47,7 @@ gender_all <- gender_all %>%
 
 # comments to be updated for this section
 gender_2020 <- unemployment %>%
-  select(Year, Month, 5:6) 
+  select(Year, Month, 5:6)
 
 gender_2020 <- gender_2020 %>%
   filter(Year == 2020) %>%
@@ -63,24 +63,24 @@ gender_2020 <- gender_2020 %>%
 # ########### data visualization ############
 # -------------------------------------------
 
-# create overall plot 
+# create overall plot
 # rate by date, gender
-gender_all_plot <- 
+gender_all_plot <-
   ggplot(data = gender_all, aes(x = date, y = unemployment_rate)) +
-  geom_line(aes(color = gender_type), size = 1) + 
-  labs(title = "Unemployment Rate (20 Years or Older)", 
+  geom_line(aes(color = gender_type), size = 1) +
+  labs(title = "Unemployment Rate (20 Years or Older)",
        x = "Year", y = "Unemployment Rate")
 
 gender_all_plot
 
 # create 2020 plot
 # rate by month, gender
-# also shows gender gap 
-gender_2020_plot <- 
+# also shows gender gap
+gender_2020_plot <-
   ggplot(data = gender_2020, aes(x = Month, y = unemployment_rate)) +
-  geom_point(aes(color = gender_type), size = 2) + 
-  geom_line() + 
-  labs(title = "Unemployment Rate (20 Years or Older)", 
+  geom_point(aes(color = gender_type), size = 2) +
+  geom_line() +
+  labs(title = "Unemployment Rate (20 Years or Older)",
        x = "Month (2020)", y = "Unemployment Rate")
 
 gender_2020_plot
@@ -100,7 +100,7 @@ chart_type <- list(
       args = list(list("stackgroup" = "")),
       label = "Scatter"
     ),
-    
+
     list(
       method = "update",
       args = list(list("stackgroup" = "one")),
@@ -174,16 +174,3 @@ plot_ly(
       rangeslider = list(type = "date")
     )
   )
-
-
-
-
-
-
-
-
-
-
-
-
-

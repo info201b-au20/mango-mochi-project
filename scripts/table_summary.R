@@ -3,21 +3,24 @@
 
 library(tidyverse)
 
-# A table of the maximum unemployment rate of each feature by year. 
-Unemployment_summary <- Unemployment %>% 
+unemployment <- read.csv("data/unemployment.csv")
+# A table of the maximum unemployment rate of each feature by year.
+unemployment <- unemployment %>% drop_na()
+Unemployment_summary <- unemployment %>% 
   group_by(Year) %>% 
   summarize(
-    men = max(Unemployment_Rate_20_Years_Over_Men), 
-    women = max(Unemployment_Rate_20_Years_Over_Women),
-    bachelors = max(Unemployment_Rate_25_Years_Over_Bachelor_s_Degree_and_Higher),
-    high_school = max(Unemployment_Rate_25_Years_Over_High_School_Graduates_No_College), 
-    less_than_highschool = max(Unemployment_Rate_25_Years_Over_Less_than_a_High_School_Diploma), 
-    some_college = max(Unemployment_Rate_25_Years_Over_Some_College_or_Associate_Degree), 
-    asian = max(Unemployment_Rate_Asian), 
-    black_or_african_american = max(Unemployment_Rate_Black_or_African_American), 
-    hispanic_or_latino = max(Unemployment_Rate_Hispanic_or_Latino), 
-    white = max(Unemployment_Rate_White)
-            )
+    Men = max(Unemployment_Rate_20_Years_Over_Men), 
+    Women = max(Unemployment_Rate_20_Years_Over_Women),
+    Bachelor_Degree_or_Higher = max(Unemployment_Rate_25_Years_Over_Bachelor_s_Degree_and_Higher),
+    High_School_Grad = max(Unemployment_Rate_25_Years_Over_High_School_Graduates_No_College), 
+    Some_High_School = max(Unemployment_Rate_25_Years_Over_Less_than_a_High_School_Diploma), 
+    Some_College_or_Associate_Degree = max(Unemployment_Rate_25_Years_Over_Some_College_or_Associate_Degree), 
+    Asian = max(Unemployment_Rate_Asian), 
+    Black_or_African_American = max(Unemployment_Rate_Black_or_African_American), 
+    Hispanic_or_Latino = max(Unemployment_Rate_Hispanic_or_Latino), 
+    White = max(Unemployment_Rate_White)
+            ) %>% 
+  arrange(desc(Year))
 
 
 
