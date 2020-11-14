@@ -3,7 +3,7 @@
 # Matrixes are alphabetical, same order as github 
 
 ######## Loading data ############
-# Set session to current directory, which is the data folder
+# Set session: setwd("~/Documents/info201/mango-mochi-project") 
 # Run from line 9 to 201
 
 # Load packages
