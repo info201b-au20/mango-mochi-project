@@ -54,7 +54,7 @@ The gender gap between sexes has always been a issue throughout history. Specifi
 
 ```{r echo = FALSE}
 # Put the variable name for your chart below this line
-grid.arrange(gender_2008_plot, gender_2020_plot, ncol = 1)  
+gender_2020_plot  
 ```
 
 ### Race Graph {#Race-Graph}
