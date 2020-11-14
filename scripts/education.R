@@ -5,7 +5,6 @@ library(plotly)
 library(rbokeh)
 
 # load unemployment data
-#setwd("~/Documents/info201/mango-mochi-project") 
 unemployment <- read.csv("data/unemployment.csv")
 
 # select education col

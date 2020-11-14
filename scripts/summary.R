@@ -3,8 +3,8 @@ library(tidyverse)
 library(dplyr)
 
 # Working directory set inside data folder 
-Unemployment<- read.csv("unemployment_2003-2020.csv")
-View(Unemployment)
+Unemployment<- read.csv("data/unemployment_2003-2020.csv")
+#View(Unemployment)
 
 #################### Overall Max Value##########################################
 
