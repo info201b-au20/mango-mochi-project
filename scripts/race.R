@@ -47,10 +47,11 @@ sapply(race, typeof)
 
 
 # create plot with ggplot
-ggplot(data = race, aes(x = date, y = unemployment_rate)) +
+race_graph <-ggplot(data = race, aes(x = date, y = unemployment_rate)) +
   geom_bar(aes(fill = racial_background),stat = "identity") +
   ggtitle("Unemployment based on race 2020") 
   
+race_graph
 
 # # Create an interactive plot of the education data set using Bokeh
 # figure(
@@ -72,88 +73,88 @@ ggplot(data = race, aes(x = date, y = unemployment_rate)) +
 #     # number_formatter = "printf", # formatter for each axis tick
 #     # format = "%s cm",            # specify the desired tick labeling
 #   )
-
-chart_type <- list(
-  x = 1.35,
-  y = .7,
-  buttons = list(
-    list(
-      method = "update",
-      args = list(list("stackgroup" = "")),
-      label = "Scatter"
-    ),
-    
-    list(
-      method = "update",
-      args = list(list("stackgroup" = "one")),
-      label = "Stackgroup"
-    )
-  )
-)
-
-hover <- list(
-  x = 1.65,
-  y = .7,
-  buttons = list(
-    list(
-      method = "relayout",
-      args = list(list("hovermode" = "closest")),
-      label = "Hover off"
-    ),
-    list(
-      method = "relayout",
-      args = list(list("hovermode" = "x")),
-      label = "Hover on "
-    )
-  )
-)
-
-# Create interactive plot with plotly
-# symbol = ~education_type,
-# fill = "tozeroy"
-race_graph <- plot_ly(
-  data = race,
-  x = ~date,
-  y = ~unemployment_rate,
-  type = "scatter",
-  alpha = .7,
-  color = ~racial_background,
-  mode = "markers",
-  text = ~ paste("Date: ", date, "<br>Unemployment Rate:", unemployment_rate,
-                 "<br>education:", racial_background)
-) %>%
-  layout(
-    title = "Unemployment Rate for 25 Years or Older",
-    updatemenus = list(chart_type, hover),
-    yaxis = list(title = "Unemployment Rate (%)"),
-    xaxis = list(
-      title = "Date",
-      type = "date",
-      range = c("2000-01-01", "2020-10-01"),
-      rangeselector = list(
-        buttons = list(
-          list(
-            count = 2,
-            label = "2 yr",
-            step = "year",
-            stepmode = "backward"
-          ),
-          list(
-            count = 5,
-            label = "4 yr",
-            step = "year",
-            stepmode = "backward"
-          ),
-          list(
-            count = 13,
-            label = "12 yr",
-            step = "year",
-            stepmode = "backward"
-          ),
-          list(step = "all")
-        )
-      ),
-      rangeslider = list(type = "date")
-    )
-  )
+# 
+# chart_type <- list(
+#   x = 1.35,
+#   y = .7,
+#   buttons = list(
+#     list(
+#       method = "update",
+#       args = list(list("stackgroup" = "")),
+#       label = "Scatter"
+#     ),
+#     
+#     list(
+#       method = "update",
+#       args = list(list("stackgroup" = "one")),
+#       label = "Stackgroup"
+#     )
+#   )
+# )
+# 
+# hover <- list(
+#   x = 1.65,
+#   y = .7,
+#   buttons = list(
+#     list(
+#       method = "relayout",
+#       args = list(list("hovermode" = "closest")),
+#       label = "Hover off"
+#     ),
+#     list(
+#       method = "relayout",
+#       args = list(list("hovermode" = "x")),
+#       label = "Hover on "
+#     )
+#   )
+# )
+# 
+# # Create interactive plot with plotly
+# # symbol = ~education_type,
+# # fill = "tozeroy"
+# race_graph <- plot_ly(
+#   data = race,
+#   x = ~date,
+#   y = ~unemployment_rate,
+#   type = "scatter",
+#   alpha = .7,
+#   color = ~racial_background,
+#   mode = "markers",
+#   text = ~ paste("Date: ", date, "<br>Unemployment Rate:", unemployment_rate,
+#                  "<br>education:", racial_background)
+# ) %>%
+#   layout(
+#     title = "Unemployment Rate for 25 Years or Older",
+#     updatemenus = list(chart_type, hover),
+#     yaxis = list(title = "Unemployment Rate (%)"),
+#     xaxis = list(
+#       title = "Date",
+#       type = "date",
+#       range = c("2000-01-01", "2020-10-01"),
+#       rangeselector = list(
+#         buttons = list(
+#           list(
+#             count = 2,
+#             label = "2 yr",
+#             step = "year",
+#             stepmode = "backward"
+#           ),
+#           list(
+#             count = 5,
+#             label = "4 yr",
+#             step = "year",
+#             stepmode = "backward"
+#           ),
+#           list(
+#             count = 13,
+#             label = "12 yr",
+#             step = "year",
+#             stepmode = "backward"
+#           ),
+#           list(step = "all")
+#         )
+#       ),
+#       rangeslider = list(type = "date")
+#     )
+#   )
 

@@ -48,7 +48,7 @@ education_graph
 ```
 
 
-### Gender Graph {#Gender-Graph}
+### Gender Graph {g#Gender-Graph}
 Below is a chart intended to show the relationship between Gender and Unemployment Rate in 2020: 
 
 The gender gap between sexes has always been a issue throughout history. Specifically as the result of COVID, how large, if any, is the gender gap between men and women. Surprisingly, our graph reveals that the unemployment rate between men and women as mostly been the same this past year. For 5 of the past months, the unemployment rate has been less than a 1% difference. However, notably for April 2019, when COVID began taking a significant toll on Americans, the unemployment difference was the largest its been this past year with about a 3% difference. 
@@ -64,5 +64,5 @@ Below is a chart intended to show the relationship between Race and Unemployment
 
 ```{r echo = FALSE}
 # Put the variable name for your chart below this line 
-
+race_graph
 ```
