@@ -1,8 +1,6 @@
 # creates a table of summary information to be included
 
-library(tidyverse)
-
-# unemployment <- read.csv("data/unemployment.csv")
+#library(tidyverse)
 
 unemployment<- read.csv("data/unemployment_2003-2020.csv")
 View(unemployment)
