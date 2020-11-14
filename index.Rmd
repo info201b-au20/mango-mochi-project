@@ -40,7 +40,7 @@ education_graph
 Below is a chart intended to show the relationship between Gender and Unemployment Rate: 
 ```{r echo = FALSE}
 # Put the variable name for your chart below this line 
-
+gender_2020_plot
 ```
 
 

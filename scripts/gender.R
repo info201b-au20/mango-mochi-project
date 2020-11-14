@@ -9,7 +9,7 @@ library(plotly)
 library(rbokeh)
 
 # load unemployment data, set session to data file
-unemployment <- read.csv("../data/unemployment.csv")
+unemployment <- read.csv("data/unemployment.csv")
 
 # create main dataframe `gender`
 gender <- unemployment %>%
