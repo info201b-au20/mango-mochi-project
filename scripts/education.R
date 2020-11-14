@@ -47,29 +47,9 @@ sapply(education, typeof)
 ggplot(data = education, aes(x = date, y = unemployment_rate)) +
   geom_line(aes(color = education_type), size = 1)
 
-# # Create an interactive plot of the education data set using Bokeh
-# figure(
-#   data = education,                          # data for the figure
-#   title = "Unemployment Rate for 25 Years or Older" # title for the figure
-# ) %>%
-#   ly_points(
-#     date,    # column for the x-axis (without quotes!)
-#     unemployment_rate,    # column for the y-axis (without quotes!)
-#     color = education_type # column for the color encoding (without quotes!)
-#   ) %>%
-#   x_axis(
-#     label = "Date",       # label for the axis
-#     # number_formatter = "printf", # formatter for each axis tick
-#     # format = "%s cm",            # specify the desired tick labeling
-#   ) %>%
-#   y_axis(
-#     label = "Unemployment Rate",       # label for the axis
-#     # number_formatter = "printf", # formatter for each axis tick
-#     # format = "%s cm",            # specify the desired tick labeling
-#   )
-
+# create buttons
 chart_type <- list(
-  x = 1.35,
+  x = 1.25,
   y = .7,
   buttons = list(
     list(
@@ -87,7 +67,7 @@ chart_type <- list(
 )
 
 hover <- list(
-  x = 1.65,
+  x = 1.45,
   y = .7,
   buttons = list(
     list(
@@ -115,7 +95,8 @@ education_graph <- plot_ly(
   color = ~education_type,
   mode = "markers",
   text = ~ paste("Date: ", date, "<br>Unemployment Rate:", unemployment_rate,
-                 "<br>education:", education_type)
+                 "<br>education:", education_type),
+  width=900, height=600
 ) %>%
   layout(
     title = "Unemployment Rate for 25 Years or Older",

@@ -134,7 +134,7 @@ summary_info_2020$num_observations <- nrow(Unemployment) # number of rows
 summary_info_2020$num_features <- ncol(Unemployment) # number of columns
 columns <- colnames(Unemployment)
 
-View(Unemployment)
+#View(Unemployment)
 # Max unemployment rate for men
 summary_info_2020$men_highest <- Unemployment %>%
   mutate_at(vars(Unemployment_Rate_20_Years_Over_Men), list(as.numeric)) %>% 
@@ -247,5 +247,5 @@ summary_info_2020$white_highest <- Unemployment %>%
   distinct(Unemployment_Rate_White) %>% 
   pull(Unemployment_Rate_White)
 
-View(summary_info_2020)
+#View(summary_info_2020)
 

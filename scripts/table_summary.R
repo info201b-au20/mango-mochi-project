@@ -3,7 +3,7 @@
 #library(tidyverse)
 
 unemployment<- read.csv("data/unemployment_2003-2020.csv")
-View(unemployment)
+#View(unemployment)
 
 ########################Table 1, max values#####################################
 
@@ -25,7 +25,7 @@ Unemployment_summary <- unemployment %>%
             ) %>% 
   arrange(desc(Year))
 
-View(Unemployment_summary)
+# View(Unemployment_summary)
 
 
 
