@@ -62,6 +62,11 @@ gender_2020_plot
 ### Race Graph {#Race-Graph}
 Below is a chart intended to show the relationship between Race and Unemployment Rate: 
 
+With unemployment rates reaching massive levels due to the pandemic, it is important to pinpoint whether or not certain racial demographics have been affected differently. This graph reveals that the unemployment spike that happened as a cause of COVID-19 had a tremendous impact on all racial backgrounds, with minorities being affected about 2% more and African Americans being the furthest from reaching their pre-corona levels.
+
+
+
+
 ```{r echo = FALSE}
 # Put the variable name for your chart below this line 
 race_graph
