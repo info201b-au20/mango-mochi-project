@@ -9,7 +9,7 @@
 #library(rbokeh)
 
 # load unemployment data, set session to data file
-unemployment <- read.csv("../data/unemployment.csv")
+#unemployment <- read.csv("data/unemployment.csv")
 
 # create main dataframe `gender`
 gender <- unemployment %>%
@@ -69,8 +69,6 @@ gender_all_plot <- ggplot(data = gender_all, aes(x = date, y = unemployment_rate
   labs(title = "Unemployment Rate (20 Years or Older)", 
        x = "Year", y = "Unemployment Rate")
 
-gender_all_plot
-
 # create 2020 plot
 # rate by month, gender
 # also shows gender gap 
@@ -80,8 +78,6 @@ gender_2020_plot <-
   geom_line() + 
   labs(title = "Unemployment Rate (20 Years or Older)", 
        x = "Month (2020)", y = "Unemployment Rate")
-
-gender_2020_plot
 
 # -------------------------------------------
 # ############# miscellaneous ##############
@@ -170,15 +166,3 @@ plot_ly(
       rangeslider = list(type = "date")
     )
   )
-
-
-
-<<<<<<< HEAD
-
-
-
-
-
-
-=======
->>>>>>> d78a965e7b17b6c3a00edc89ddcb400947289727
