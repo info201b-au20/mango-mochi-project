@@ -42,11 +42,6 @@ education <- education %>%
 
 sapply(education, typeof)
 
-
-# create plot with ggplot
-ggplot(data = education, aes(x = date, y = unemployment_rate)) +
-  geom_line(aes(color = education_type), size = 1)
-
 # create buttons
 chart_type <- list(
   x = 1.25,
