@@ -190,7 +190,7 @@ Americans."
 
 # Create overall ui by calling the into panel and plot panel
 ui <- navbarPage(
-  # includeCSS("style.css"),
+  # includeCSS("style.css"),  # this is not working for some reasons
   "COVID-19 Unemployment",
   intro_panel,
   education_panel,
