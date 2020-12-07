@@ -16,7 +16,7 @@ intro_panel <- tabPanel(
   By doing so, we hope to discover and understand the stories behind the
   numbers."
   ),
-  
+
   p(
     "This is our report of the Labor Force Statistics Dataset from the ",
     a(href = "https://data.bls.gov/cgi-bin/surveymost?ln", "U.S. Bureau of Labor
@@ -55,7 +55,7 @@ education_sidebar <- sidebarPanel(
     value=c(as.Date("2000-01-01"), as.Date("2020-10-01")),
     timeFormat="%Y-%m-%d"
   ),
-  
+
   radioButtons(
     "hover",
     label = "Compare Mode",
@@ -80,9 +80,9 @@ education_content <- mainPanel(
 # education tab
 education_panel <- tabPanel(
   "Education Graph",
-  
+
   titlePanel("Unemployment Rate for 25 Years or Older"),
-  
+
   sidebarLayout(education_sidebar,
                 education_content)
 )
@@ -100,9 +100,9 @@ gender_content <- mainPanel(
 # gender tab
 gender_panel <- tabPanel(
   "Gender Graph",
-  
+
   titlePanel("graph title here"),
-  
+
   sidebarLayout(gender_sidebar,
                 gender_content)
 )
@@ -121,9 +121,9 @@ race_content <- mainPanel(
 # race tab
 race_panel <- tabPanel(
   "Race Graph",
-  
+
   titlePanel("graph title here"),
-  
+
   sidebarLayout(race_sidebar,
                 race_content)
 )
@@ -190,6 +190,7 @@ Americans."
 
 # Create overall ui by calling the into panel and plot panel
 ui <- navbarPage(
+  # includeCSS("style.css"),
   "COVID-19 Unemployment",
   intro_panel,
   education_panel,
