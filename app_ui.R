@@ -1,4 +1,8 @@
 library(shiny)
+library(mapproj)
+library(patchwork)
+library(ggmap)
+library(RColorBrewer)
 
 # First Tab which includes the introduction.
 intro_panel <- tabPanel(
@@ -137,10 +141,27 @@ race_panel <- tabPanel(
                 race_content)
 )
 
+states_data <- 
+  read.csv("~/Desktop/info_201/mango-mochi-project/data/states_data.csv")
+states_data_name <- states_data %>% 
+  select(-c(1:8))
+select_values <- colnames(states_data_name)
+
+# Create a variable `fill_input` that stores a `selectInput()` fill variables
+# assign an inputId, label, and selected value
+fill_input <- selectInput(
+  "fill_input",
+  label = "Data Choices: ",
+  choices = select_values,
+  selected = "unempl"
+)
+
 # First Tab which includes the introduction.
 summary_panel <- tabPanel(
   "Summary",
   titlePanel("Summary and Takeaways"),
+  plotlyOutput("map"), 
+  fill_input, 
   h3("Education Takeaway"),
   p(
     "During times like these, with vast unemployment rates, many students like
