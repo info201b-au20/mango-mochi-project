@@ -87,14 +87,22 @@ education_panel <- tabPanel(
                 education_content)
 )
 
+# tenz work in progress --------------------
 # widgets for gender graph
-gender_sidebar <- sidebarPanel(
-  # your widget(s) here
+gender_sidebar <- sidebarPanel( 
+      p("Blah"),
+      sliderInput(
+        inputId = "slider",
+        label = "date",
+        min = 2000,
+        max = 2020,
+        value = c(2000)
+      ),
 )
 
-# education gender itself
+# gender graph itself
 gender_content <- mainPanel(
-  plotOutput("gender_graph")
+  plotOutput(outputId = "gender_graph")
 )
 
 # gender tab
@@ -106,6 +114,7 @@ gender_panel <- tabPanel(
   sidebarLayout(gender_sidebar,
                 gender_content)
 )
+# ------------------------------------
 
 # widgets for race graph
 race_sidebar <- sidebarPanel(
@@ -113,7 +122,7 @@ race_sidebar <- sidebarPanel(
 )
 
 
-# race gender itself
+# race graph itself
 race_content <- mainPanel(
   plotOutput("race_graph")
 )
