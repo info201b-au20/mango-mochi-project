@@ -73,10 +73,27 @@ server <- function(input, output) {
     return(build_education_graph(education, input$hover, input$year_range,
                          input$type))
   })
+  
+#### tenz work in progress --------------------
   output$gender_graph <- renderPlot({
-    return(gender_2020_plot)
+    updated <- gender_all %>%
+      filter(date == input$date) %>%
+      select(unemployment_rate, date, gender_type)
+    
+    output$value <- renderPrint({ input$slider })
+    gender_pallettte <- c("seagreen3", "mediumorchid")
+    
+    ggplot(data = updated) + 
+      geom_line(mapping = aes(x = date, y = unemployment_rate, color = gender_type)) +
+      labs(x = "Year", y = "Unemployment Rate",
+      title = "Unemployment Rate (20 Years +)") +
+      scale_color_manual(values = gender_pallettte) + 
+      lims(x = c(max(input$slider), 2020))
   })
+# ---------------------------------------
+  
   output$race_graph <- renderPlot({
     return(race_graph)
   })
 }
+
