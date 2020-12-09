@@ -143,14 +143,17 @@ server <- function(input, output) {
       guides(fill=FALSE) + 
       theme(legend.position = "bottom") 
     
-    statistics_map <- ggplot(
-      data = map_data, 
-      mapping = aes_string(x = "long", y = "lat", 
-                    fill = input$fill_input)) + 
-      geom_polygon(color = "gray90", size = 0.05) + 
-      coord_map() + 
+    
+    
+    statistics_map <- ggplot(data = map_data) + 
+      geom_polygon(aes_string(x = "long", y = "lat", 
+                              fill = input$fill_input, 
+                       group = "group"), color = "gray90", size = 0.05) +
       blank_theme +
+      theme(legend.position = "bottom") +
+      coord_fixed(1.3) +
       labs(title = title)
+    
     ggplotly(statistics_map)
     
   })
