@@ -123,32 +123,21 @@ server <- function(input, output) {
   
   
   
-  
-  
-  
 ############# Map for State data
   output$map <- renderPlotly({
     
     title <- paste0(input$fill_input, " by State")
     
+    states <- map_data("state") 
+    map_data <- states %>% left_join(states_data_num, by="region") 
+    
     # Making the map, View(states)
     states <- map_data("state")  
-    # Join map data to the data
-    map_data <- states %>% left_join(states_data_num, by="region") 
-    ggplot(data = map_data) + 
-      geom_polygon(
-        aes_string(x = "long", y = "lat", group = "group"), 
-                   color = "white") + 
-      coord_fixed(1.3) +
-      guides(fill=FALSE) + 
-      theme(legend.position = "bottom") 
-    
-    
     
     statistics_map <- ggplot(data = map_data) + 
       geom_polygon(aes_string(x = "long", y = "lat", 
                               fill = input$fill_input, 
-                       group = "group"), color = "gray90", size = 0.05) +
+                              group = "group"), color = "gray90", size = 0.05) +
       blank_theme +
       theme(legend.position = "bottom") +
       coord_fixed(1.3) +
@@ -156,8 +145,7 @@ server <- function(input, output) {
     
     ggplotly(statistics_map)
     
-  })
-  
+  })   
 
   
   

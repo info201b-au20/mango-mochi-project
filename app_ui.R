@@ -144,7 +144,7 @@ race_panel <- tabPanel(
 states_data <- 
   read.csv("~/Desktop/info_201/mango-mochi-project/data/states_data.csv")
 states_data_name <- states_data %>% 
-  select(-c(1:8))
+  select(-c(3:8))
 select_values <- colnames(states_data_name)
 
 # Create a variable `fill_input` that stores a `selectInput()` fill variables
@@ -153,7 +153,7 @@ fill_input <- selectInput(
   "fill_input",
   label = "Data Choices: ",
   choices = select_values,
-  selected = "unempl"
+  selected = "Percent.Unemployed.2018"
 )
 
 # First Tab which includes the introduction.
