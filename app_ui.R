@@ -1,4 +1,8 @@
 library(shiny)
+library(mapproj)
+library(patchwork)
+library(ggmap)
+library(RColorBrewer)
 
 # First Tab which includes the introduction.
 intro_panel <- tabPanel(
@@ -87,14 +91,22 @@ education_panel <- tabPanel(
                 education_content)
 )
 
+# tenz work in progress --------------------
 # widgets for gender graph
-gender_sidebar <- sidebarPanel(
-  # your widget(s) here
+gender_sidebar <- sidebarPanel( 
+      p("Blah"),
+      sliderInput(
+        inputId = "slider",
+        label = "date",
+        min = 2000,
+        max = 2020,
+        value = c(2000)
+      ),
 )
 
-# education gender itself
+# gender graph itself
 gender_content <- mainPanel(
-  plotOutput("gender_graph")
+  plotOutput(outputId = "gender_graph")
 )
 
 # gender tab
@@ -106,6 +118,7 @@ gender_panel <- tabPanel(
   sidebarLayout(gender_sidebar,
                 gender_content)
 )
+# ------------------------------------
 
 # widgets for race graph
 race_sidebar <- sidebarPanel(
@@ -113,7 +126,7 @@ race_sidebar <- sidebarPanel(
 )
 
 
-# race gender itself
+# race graph itself
 race_content <- mainPanel(
   plotOutput("race_graph")
 )
@@ -128,10 +141,37 @@ race_panel <- tabPanel(
                 race_content)
 )
 
+select_values <- c("region", "Abbreviation",
+                   "Weekly UI Max in dollars", 
+                   "Weekly UI Max w/Extra Stimulus through July 31, 2020 (dollars)", 
+                   "UI Max duration (weeks)", 
+                   "UI Max Duration w/Pandemic Emergency Unemployment Compensation CARES extension (weeks)", 
+                   "Minimum Total Earnings Required In Base Period to Qualify for UI", 
+                   "Number of calendar quarters w/earnings in base period needed to qualify for UI", 
+                   "Minimum total earnings required outside highest earning calendar quarter of base period to qualify for UI", 
+                   "Require earnings in the last two calendar quarters of the base period in order to qualify for UI", 
+                   "Taxable Wage Amount", "Average Benefit Amount (August)", 
+                   "Population Density Per Square Miles", "Population in 2018", 
+                   "Number Homeless in 2019", "Percent Unemployed in 2018", 
+                   "Percent Living Under the Federal Poverty Line 2018", 
+                   "Percent At Risk for Serious Illness Due to COVID", 	
+                   "All-cause Deaths in 2018")
+
+# Create a variable `fill_input` that stores a `selectInput()` fill variables
+# assign an inputId, label, and selected value
+fill_input <- selectInput(
+  "fill_input",
+  label = "Data Choices: ",
+  choices = select_values,
+  selected = "Percent Unemployed in 2018"
+)
+
 # First Tab which includes the introduction.
 summary_panel <- tabPanel(
   "Summary",
   titlePanel("Summary and Takeaways"),
+  plotlyOutput("map"), 
+  fill_input, 
   h3("Education Takeaway"),
   p(
     "During times like these, with vast unemployment rates, many students like
