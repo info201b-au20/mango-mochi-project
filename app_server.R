@@ -22,7 +22,7 @@ build_education_graph <- function(df, hover, year_range, type) {
       stackgroup = type,
       text = ~ paste("Date: ", date, "<br>Unemployment Rate:", unemployment_rate,
          "<br>education:", education_type),
-      width=1000, height=700
+      width=950, height=700
    ) %>%
    layout(
       hovermode = hover,
