@@ -163,7 +163,7 @@ fill_input <- selectInput(
   "fill_input",
   label = "Data Choices: ",
   choices = select_values,
-  selected = "Percent.Unemployed.2018"
+  selected = "Percent Unemployed in 2018"
 )
 
 # First Tab which includes the introduction.
