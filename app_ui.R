@@ -3,7 +3,6 @@ library(mapproj)
 library(patchwork)
 library(ggmap)
 library(RColorBrewer)
-
 # First Tab which includes the introduction.
 intro_panel <- tabPanel(
   "Introduction",
@@ -20,7 +19,6 @@ intro_panel <- tabPanel(
   By doing so, we hope to discover and understand the stories behind the
   numbers."
   ),
-
   p(
     "This is our report of the Labor Force Statistics Dataset from the ",
     a(href = "https://data.bls.gov/cgi-bin/surveymost?ln", "U.S. Bureau of Labor
@@ -45,7 +43,6 @@ intro_panel <- tabPanel(
   ),
   tableOutput("unemployment")
 )
-
 # widgets for education graph
 education_sidebar <- sidebarPanel(
   sliderInput(
@@ -59,7 +56,6 @@ education_sidebar <- sidebarPanel(
     value=c(as.Date("2000-01-01"), as.Date("2020-10-01")),
     timeFormat="%Y-%m-%d"
   ),
-
   radioButtons(
     "hover",
     label = "Compare Mode",
@@ -75,72 +71,56 @@ education_sidebar <- sidebarPanel(
     selected = ""
   )
 )
-
 # education graph itself
 education_content <- mainPanel(
   plotlyOutput("education_graph")
 )
-
 # education tab
 education_panel <- tabPanel(
   "Education Graph",
-
   titlePanel("Unemployment Rate for 25 Years or Older"),
-
   sidebarLayout(education_sidebar,
                 education_content)
 )
-
 # tenz work in progress --------------------
 # widgets for gender graph
 gender_sidebar <- sidebarPanel( 
-      p("Blah"),
-      sliderInput(
-        inputId = "slider",
-        label = "date",
-        min = 2000,
-        max = 2020,
-        value = c(2000)
-      ),
+  p("Blah"),
+  sliderInput(
+    inputId = "slider",
+    label = "date",
+    min = 2000,
+    max = 2020,
+    value = c(2000)
+  ),
 )
-
 # gender graph itself
 gender_content <- mainPanel(
   plotOutput(outputId = "gender_graph")
 )
-
 # gender tab
 gender_panel <- tabPanel(
   "Gender Graph",
-
   titlePanel("graph title here"),
-
   sidebarLayout(gender_sidebar,
                 gender_content)
 )
 # ------------------------------------
-
 # widgets for race graph
 race_sidebar <- sidebarPanel(
   # your widget(s) here
 )
-
-
 # race graph itself
 race_content <- mainPanel(
   plotOutput("race_graph")
 )
-
 # race tab
 race_panel <- tabPanel(
   "Race Graph",
-
   titlePanel("graph title here"),
-
   sidebarLayout(race_sidebar,
                 race_content)
 )
-
 select_values <- c("region", "Abbreviation",
                    "Weekly UI Max in dollars", 
                    "Weekly UI Max w/Extra Stimulus through July 31, 2020 (dollars)", 
@@ -156,7 +136,6 @@ select_values <- c("region", "Abbreviation",
                    "Percent Living Under the Federal Poverty Line 2018", 
                    "Percent At Risk for Serious Illness Due to COVID", 	
                    "All-cause Deaths in 2018")
-
 # Create a variable `fill_input` that stores a `selectInput()` fill variables
 # assign an inputId, label, and selected value
 fill_input <- selectInput(
@@ -227,10 +206,9 @@ Americans."
   h3("Conclusion"),
   p("Our conclusion here blah blah blah")
 )
-
 # Create overall ui by calling the into panel and plot panel
 ui <- navbarPage(
-  # includeCSS("style.css"),  # this is not working for some reasons
+  theme = "style.css",  # this is not working for some reasons
   "COVID-19 Unemployment",
   intro_panel,
   education_panel,

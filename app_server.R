@@ -13,7 +13,7 @@ source("scripts/education.R")
 source("scripts/gender.R")
 source("scripts/race.R")
 source("scripts/table_summary.R")
-states_data <- read.csv("~/Desktop/info_201/mango-mochi-project/data/states_data.csv")
+states_data <- read.csv("data/states_data.csv")
 states_data_num <- states_data %>% 
   select(-c(3:8))
 
