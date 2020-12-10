@@ -128,6 +128,22 @@ server <- function(input, output) {
     
     title <- paste0(input$fill_input, " by State")
     
+    colnames(states_data_num) <- c("region", "Abbreviation",
+                                   "Weekly UI Max in dollars", 
+                                   "Weekly UI Max w/Extra Stimulus through July 31, 2020 (dollars)", 
+                                   "UI Max duration (weeks)", 
+                                   "UI Max Duration w/Pandemic Emergency Unemployment Compensation CARES extension (weeks)", 
+                                   "Minimum Total Earnings Required In Base Period to Qualify for UI", 
+                                   "Number of calendar quarters w/earnings in base period needed to qualify for UI", 
+                                   "Minimum total earnings required outside highest earning calendar quarter of base period to qualify for UI", 
+                                   "Require earnings in the last two calendar quarters of the base period in order to qualify for UI", 
+                                   "Taxable Wage Amount", "Average Benefit Amount (August)", 
+                                   "Population Density Per Square Miles", "Population in 2018", 
+                                   "Number Homeless in 2019", "Percent Unemployed in 2018", 
+                                   "Percent Living Under the Federal Poverty Line 2018", 
+                                   "Percent At Risk for Serious Illness Due to COVID", 	
+                                   "All-cause Deaths in 2018")
+    
     states <- map_data("state") 
     map_data <- states %>% left_join(states_data_num, by="region") 
     
@@ -135,13 +151,13 @@ server <- function(input, output) {
     states <- map_data("state")  
     
     statistics_map <- ggplot(data = map_data) + 
-      geom_polygon(aes_string(x = "long", y = "lat", 
-                              fill = input$fill_input, 
-                              group = "group"), color = "gray90", size = 0.05) +
+      geom_polygon(aes(x = long, y = lat, 
+                       fill = map_data[[input$fill_input]], group = group), 
+                   color = "gray90", size = 0.05) +
       blank_theme +
       theme(legend.position = "bottom") +
       coord_fixed(1.3) +
-      labs(title = title)
+      labs(fill = input$fill_input, title = title)
     
     ggplotly(statistics_map)
     
