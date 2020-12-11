@@ -183,7 +183,7 @@ select_values <-
 
 ##### creates the server to create and output the graph from widget inputs.
 server <- function(input, output) {
-  output$unemployment <- renderTable(unemployment_sum)
+  output$unemployment <- renderDataTable(unemployment_sum)
 
   output$education_graph <- renderPlotly({
     return(build_education_graph(education, input$hover, input$year_range,
@@ -207,11 +207,9 @@ server <- function(input, output) {
     
     colnames(states_data_num) <- select_values
     
+    # Making the map, View(states)
     states <- map_data("state") 
     map_data <- states %>% left_join(states_data_num, by="region") 
-    
-    # Making the map, View(states)
-    states <- map_data("state")  
     
     statistics_map <- ggplot(data = map_data) + 
       geom_polygon(aes(x = long, y = lat, 
@@ -225,6 +223,8 @@ server <- function(input, output) {
     ggplotly(statistics_map)
     
   })   
+
+  
 
   
   

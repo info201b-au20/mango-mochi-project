@@ -2,6 +2,10 @@
 library(tidyverse)
 library(dplyr)
 
+# image links
+# https://kalingatv.com/miscellany/covid-19-pandemic-left-147m-people-unemployed-globally/
+# https://www.debt.org/2020/08/27/covid-19-unemployment-benefits/
+
 # Working directory set inside data folder 
 Unemployment<- read.csv("data/unemployment_2003-2020.csv")
 #View(Unemployment)

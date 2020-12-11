@@ -9,8 +9,8 @@ intro_panel <- tabPanel(
   "Introduction",
   titlePanel("COVID-19 Unemployment Impact"),
   p("By: Tenzin, Christina, Noah, & Justin"),
-  h3("Introduction"),
   img(src = "covid.jpeg",height="400", width="1400"),
+  h3("Introduction"),
   p(
     "In the midst of political, social, and economic polarization induced by
   COVID outbreaks, it would be interesting to explore the new dynamics of the
@@ -21,7 +21,8 @@ intro_panel <- tabPanel(
   numbers."
   ),
   p(
-    "This is our report of the Labor Force Statistics Dataset from the ",
+    "Our report use datasets from two different sources. The first one is the 
+    Labor Force Statistics Dataset from the ",
     a(href = "https://data.bls.gov/cgi-bin/surveymost?ln", "U.S. Bureau of Labor
      Statistics"),
     " Current Population Survey’s Labor Force Statistics. The
@@ -30,6 +31,18 @@ intro_panel <- tabPanel(
      It provides a comprehensive body of data on the labor force, employment,
      unemployment, persons not in the labor force, hours of work, earnings, and
      other demographic and labor force characteristics."
+  ),
+  p(
+    "The second dataset is from the ", a(href = 
+    "https://www.openicpsr.org/openicpsr/project/119446/version/V38/view?path=/openicpsr/119446/fcr:versions/V38", 
+    "COVID-19 US State Policy Database", .noWS = "after"),
+    ". The data was collected from a variety of sources including state 
+    mandates, orders, and official governor press releases. It was then compiled 
+    by researchers at the Boston University School of Public Health. The dataset 
+    includes state level data on policies on unemployment insurances, 
+    unemployment percentage, percent under poverty line, and more. This will 
+    allow analysis of correlation between unemployment verses other 
+    socioeconomic factors. "
   ),
   hr(),
   p(
@@ -40,9 +53,9 @@ intro_panel <- tabPanel(
   rate of each year. We sorted the data in descending year order so it is easy
   to compare 2020 with previous years. As you can see, the unemployment rates
   of 2020 is significantly higher than the previous years. Even compared to the
-  regression in 2008, 2020 unemployment is significantly higher"
+  regression in 2008, 2020 unemployment is significantly higher."
   ),
-  tableOutput("unemployment")
+  dataTableOutput("unemployment")
 )
 # widgets for education graph
 education_sidebar <- sidebarPanel(
@@ -70,11 +83,46 @@ education_sidebar <- sidebarPanel(
     choices = list("Scatter" = "",
                    "Stack Group" = "one"),
     selected = ""
-  )
+  ), 
+  h5("Details"), 
+  p(strong("How does unemployment rates correlate with education level?"), br(), 
+  "In this graph we can explore the effects of education level on unemployment 
+    rates."), 
+  p("Choose the from the time ranges and other display options to see how the 
+    unemployment rates differ for the education levels of Some High School, 
+    High School Graduate, Some College or Associate Degree, and Bachelor Degree 
+    or Higher.")
 )
 # education graph itself
 education_content <- mainPanel(
-  plotlyOutput("education_graph")
+  plotlyOutput("education_graph"), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(),
+  br(), 
+  br(),
+  hr(),
+  h3("Education Takeaway"),
+  p(
+    "During times like these, with vast unemployment rates, many students like
+us are struggling with school. But does education level really impact one's
+chances of being unemployed? The education graph sought to answer that
+problem. As we can see, there was a significant spike in unemployment in
+2020 based on education levels. Notably, those with lower education levels,
+some high school or just high school, were hit the worst by COVID-19 as their
+unemployment rates skyrocketed. On the other hand, those with higher
+education, were not as significantly impacted."
+  )
 )
 # education tab
 education_panel <- tabPanel(
@@ -110,12 +158,47 @@ gender_sidebar <- sidebarPanel(
     choices = list("Scatter" = "",
                    "Stack Group" = "one"),
     selected = ""
-  )
+  ), 
+  p(strong("How does unemployment rates correlate with the different genders?"), 
+    br(), "In this graph we can explore the effects of gender on unemployment 
+    rates, if any."), 
+  p("Choose the from the time ranges and other display options to see how the 
+    unemployment rates differ for men and women.")
 )
 
 # gender graph itself
 gender_content <- mainPanel(
-  plotlyOutput("gender_plot")
+  plotlyOutput("gender_plot"), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(),
+  br(), 
+  br(),
+  hr(),
+  h3("Gender Takeaway"),
+  p(
+    "The gender gap between sexes has always been a issue throughout history.
+Specifically as the result of COVID, how large, if any, is the gender gap
+between men and women? Surprisingly, our graph reveals that the unemployment
+rate between men and women as mostly been the same this past year.
+For 5 of the past months, the unemployment rate has been less than a
+1% difference. However, notably for April 2019, when COVID began taking a
+significant toll on Americans, the unemployment difference was the largest
+its been this past year with about a 3% difference. The gender binary colors
+(pink, blue) are ovverrepresented in data, which inspired the choice of ",
+    a(href = "https://blog.datawrapper.de/gendercolor/", "purple and green
+ Statistics", .noWS = "after"), "."
+  )
 )
 # gender tab
 gender_panel <- tabPanel(
@@ -133,7 +216,22 @@ race_sidebar <- sidebarPanel(
 )
 # race graph itself
 race_content <- mainPanel(
-  plotOutput("race_graph")
+  plotOutput("race_graph"),   
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  br(), 
+  hr(),
+  h3("Race Data Takeaways"),
+  p(
+    "With unemployment rates reaching massive levels due to the pandemic, it is
+    important to pinpoint whether or not certain racial demographics have been
+    affected differently. This graph reveals that the unemployment spike that
+    happened as a cause of COVID-19 had a tremendous impact on all racial
+    backgrounds, with minorities being affected about 2% more and African
+    Americans being the furthest from reaching their pre-corona levels."
+  ),
 )
 # race tab
 race_panel <- tabPanel(
@@ -142,6 +240,8 @@ race_panel <- tabPanel(
   sidebarLayout(race_sidebar,
                 race_content)
 )
+
+# widgets for map 
 select_values <- c("region", "Abbreviation",
                    "Weekly UI Max in dollars", 
                    "Weekly UI Max w/Extra Stimulus through July 31, 2020 (dollars)", 
@@ -166,50 +266,37 @@ fill_input <- selectInput(
   selected = "Percent Unemployed in 2018"
 )
 
+# widgets for map
+map_sidebar <- sidebarPanel(
+  # your widget(s) here
+  fill_input, 
+  h5("Details"), 
+  p(strong("How does unemployment rates at the state level correlate with other 
+           factors?"), br(), 
+    "In this graph we can explore how unemployment rates, Unemployment 
+    Insurance (UI) policies, population, and other factors relates."), 
+  p("Choose the different data options to visualize the difference in data 
+    between states.")
+)
+# display maps 
+map_content <- mainPanel(
+  plotlyOutput("map")
+)
+# map tab
+map_panel <- tabPanel(
+  "State Data Graph",
+  titlePanel("Comparision of the Unemployment Data vs. Other State Data"),
+  sidebarLayout(map_sidebar,
+                map_content)
+)
+
 # First Tab which includes the introduction.
 summary_panel <- tabPanel(
   "Summary",
   titlePanel("Summary and Takeaways"),
-  plotlyOutput("map"), 
-  fill_input, 
-  h3("Education Takeaway"),
-  p(
-    "During times like these, with vast unemployment rates, many students like
-us are struggling with school. But does education level really impact one's
-chances of being unemployed? The education graph sought to answer that
-problem. As we can see, there was a significant spike in unemployment in
-2020 based on education levels. Notably, those with lower education levels,
-some high school or just high school, were hit the worst by COVID-19 as their
-unemployment rates skyrocketed. On the other hand, those with higher
-education, were not as significantly impacted."
-  ),
-  hr(),
-  h3("Gender Takeaway"),
-  p(
-    "The gender gap between sexes has always been a issue throughout history.
-Specifically as the result of COVID, how large, if any, is the gender gap
-between men and women? Surprisingly, our graph reveals that the unemployment
-rate between men and women as mostly been the same this past year.
-For 5 of the past months, the unemployment rate has been less than a
-1% difference. However, notably for April 2019, when COVID began taking a
-significant toll on Americans, the unemployment difference was the largest
-its been this past year with about a 3% difference. The gender binary colors
-(pink, blue) are ovverrepresented in data, which inspired the choice of ",
-    a(href = "https://blog.datawrapper.de/gendercolor/", "purple and green
- Statistics")
-  ),
-  hr(),
-  h3("Gender Takeaway"),
-  p(
-    "With unemployment rates reaching massive levels due to the pandemic, it is
-    important to pinpoint whether or not certain racial demographics have been
-    affected differently. This graph reveals that the unemployment spike that
-    happened as a cause of COVID-19 had a tremendous impact on all racial
-    backgrounds, with minorities being affected about 2% more and African
-    Americans being the furthest from reaching their pre-corona levels."
-  ),
-  hr(),
-  h3("Other Takeaways"),
+  img(src = "unemployment.jpg",height="430", width="750"),
+  # another option for img: covid-19-unemployment.jpg, can also find more
+  h3("Summary"),
   p(
     "Some quick information that we extracted from our summary information
 functions was that women had a higher max unemployment rate of 15.5% versus
@@ -235,5 +322,6 @@ ui <- navbarPage(
   education_panel,
   gender_panel,
   race_panel,
+  map_panel, 
   summary_panel
 )
