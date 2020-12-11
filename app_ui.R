@@ -3,6 +3,7 @@ library(mapproj)
 library(patchwork)
 library(ggmap)
 library(RColorBrewer)
+
 # First Tab which includes the introduction.
 intro_panel <- tabPanel(
   "Introduction",
@@ -82,30 +83,50 @@ education_panel <- tabPanel(
   sidebarLayout(education_sidebar,
                 education_content)
 )
-# tenz work in progress --------------------
+#### tenz work in progress -------------------------------------------------
+# need to remove stackgroup, do scatter and line thingy
 # widgets for gender graph
-gender_sidebar <- sidebarPanel( 
-  p("Blah"),
+gender_sidebar <- sidebarPanel(
   sliderInput(
-    inputId = "slider",
-    label = "date",
-    min = 2000,
-    max = 2020,
-    value = c(2000)
+    "year",
+    label = "Year Range",
+    # min = 2000
+    # max = 2020
+    min = as.Date("2000-01-01","%Y-%m-%d"),
+    max = as.Date("2020-09-01","%Y-%m-%d"),
+    value=c(as.Date("2000-01-01"), as.Date("2020-09-01")),
+    timeFormat="%Y-%m-%d"
   ),
+  radioButtons(
+    "hover",
+    label = "Compare Mode",
+    choices = list("Off" = "closest",
+                   "On" = "x"),
+    selected = "closest"
+  ),
+  radioButtons(
+    "type",
+    label = "Graph Type",
+    choices = list("Scatter" = "",
+                   "Stack Group" = "one"),
+    selected = ""
+  )
 )
+
 # gender graph itself
 gender_content <- mainPanel(
-  plotOutput(outputId = "gender_graph")
+  plotlyOutput("gender_plot")
 )
 # gender tab
 gender_panel <- tabPanel(
   "Gender Graph",
-  titlePanel("graph title here"),
+  titlePanel("Unemployment Rate for 25 Years or Older"),
   sidebarLayout(gender_sidebar,
                 gender_content)
 )
-# ------------------------------------
+
+# -----------------------------------------------------------------------
+
 # widgets for race graph
 race_sidebar <- sidebarPanel(
   # your widget(s) here
