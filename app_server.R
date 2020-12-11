@@ -70,6 +70,80 @@ build_education_graph <- function(df, hover, year_range, type) {
    )
 }
 
+#### tenz work in progress -------------------------------------------------
+# need to add rangeslider, or plotly buttons for data range 
+
+build_gender_plot <- function(df, hover, year, type) {
+  gender_plot <- plot_ly(
+    data = df,
+    x = ~date,
+    y = ~unemployment_rate,
+    type = "scatter",
+    alpha = .9,
+    color = ~gender_type,
+    mode = "markers",
+    stackgroup = type,
+    text = ~ paste("Date: ", date, "<br>Unemployment Rate:", unemployment_rate,
+                   "<br>gender:", gender_type),
+    width=950, height=700) %>%
+    layout(
+      hovermode = hover,
+      yaxis = list(title = "Unemployment Rate (%)"),
+      xaxis = list(
+        title = "Date",
+        type = "date",
+        range = year,
+        rangeselector = list(
+          buttons = list(
+            list(
+              count = 2,
+              label = "2 yr",
+              step = "year",
+              stepmode = "backward"
+            ),
+            list(
+              count = 5,
+              label = "4 yr",
+              step = "year",
+              stepmode = "backward"
+            ),
+            list(count = 21,
+                 label = "all",
+                 step = "year",
+                 stepmode = "backward")
+          )
+        )
+      )
+    )
+}
+
+# rough draft code for date range plotly buttons
+# updatemenus = list(
+# list(
+#   active = -1,
+#   type = 'buttons',
+#   buttons = list(
+#     list(
+#       label = 'COVID',
+#       method = "relayout",
+#       args = list(list(xaxis = list(range = as.POSIXct(c("2020-03-11","2020-09-01"), origin= "2020-09-01"),
+#                                     rangeselector = rangeselector,
+#                                     rangeslider = list(type = "date"))))), 
+#     list(
+#       label = '2001 Recession',
+#       method = "relayout",
+#       args = list(list(xaxis = list(range = as.POSIXct(c("2001-03-01","2001-11-31"), origin= "2020-09-01"),
+#                                     rangeselector = rangeselector,
+#                                     rangeslider = list(type = "date"))))),
+#     list(
+#       label = 'Great Recession',
+#       method = "relayout",
+#       args = list(list(xaxis = list(range = as.POSIXct(c("2007-12-01","2009-06-31"), origin= "2020-09-01"),
+#                                     rangeselector = rangeselector,
+#                                     rangeslider = list(type = "date")))))
+
+# -----------------------------------------------------------------------
+
 unemployment_sum <- Unemployment_summary %>%
   filter(Year > 2016 | Year > 2007 & Year < 2012) %>% 
   rename(Some_College = Some_College_or_Associate_Degree)
@@ -116,29 +190,15 @@ server <- function(input, output) {
                          input$type))
   })
   
-#### tenz work in progress --------------------
-  output$gender_graph <- renderPlot({
-    updated <- gender_all %>%
-      filter(date == input$date) %>%
-      select(unemployment_rate, date, gender_type)
-    
-    output$value <- renderPrint({ input$slider })
-    gender_pallettte <- c("seagreen3", "mediumorchid")
-    
-    ggplot(data = updated) + 
-      geom_line(mapping = aes(x = date, y = unemployment_rate, color = gender_type)) +
-      labs(x = "Year", y = "Unemployment Rate",
-      title = "Unemployment Rate (20 Years +)") +
-      scale_color_manual(values = gender_pallettte) + 
-      lims(x = c(max(input$slider), 2020))
+  output$gender_plot <- renderPlotly({
+    return(build_gender_plot(gender, input$hover, input$year,
+                                 input$type))
   })
-# ---------------------------------------
   
   output$race_graph <- renderPlot({
     return(race_graph)
   })
-  
-  
+
   
 ############# Map for State data
   output$map <- renderPlotly({
