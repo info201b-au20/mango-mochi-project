@@ -20,26 +20,29 @@ gender <- unemployment %>%
 # ######### rate by date, gender #########
 # ----------------------------------------
 
-gender_all <- gender %>%
+gender <- gender %>%
   mutate(date = as.Date(paste(Year, Month, "01", sep = "-"),
                         format = "%Y-%b-%d"))
 
 # remove `Year` and `Date` cols
-gender_all <- gender_all %>%
+gender <- gender %>%
   select(date, 3:4)
 
 # rename cols of interest
-gender_all <- gender_all %>%
+gender <- gender %>%
   rename(men = Unemployment_Rate_20_Years_Over_Men,
          women = Unemployment_Rate_20_Years_Over_Women)
 
 # aggregate/group gender unemployment rates
-gender_all <- gender_all %>%
+gender <- gender %>%
   gather(gender_type, unemployment_rate, 2:3) 
 
-gender_all <- gender_all %>%
-  filter(!is.na(unemployment_rate)) #%>%
-#arrange(unemployment_rate)
+gender <- gender %>%
+  filter(!is.na(unemployment_rate)) %>%
+  arrange(date)
+  
+  
+sapply(gender, typeof)
 
 # --------------------------------------------
 # ######## rate by 2020 month, gender ########
@@ -83,12 +86,12 @@ gender_2008 <- gender_2008 %>%
 # rate by date, gender
 gender_pallettte <- c("seagreen3", "mediumorchid")
 
-gender_all_plot <- ggplot(data = gender_all, aes(x = date, y = unemployment_rate)) +
+gender_plot <- ggplot(data = gender, aes(x = date, y = unemployment_rate)) +
   geom_line(aes(color = gender_type), size = 1) + 
   labs(title = "Unemployment Rate (20 Years or Older)", 
        x = "Year", y = "Unemployment Rate") + 
   scale_color_manual(values = gender_pallettte)
-#gender_all_plot + scale_color_manual(values = gender_pallettte)
+#gender_plot + scale_color_manual(values = gender_pallettte)
 
 # create 2020 plot
 # rate by month, gender
@@ -120,86 +123,87 @@ gender_2020_2008_plot <-
 # ############# miscellaneous ##############
 # -------------------------------------------
 
-# snagged from justin to try out
-# create interactive plot
-# chart_type <- list(
-#   x = 1.35,
-#   y = .7,
-#   buttons = list(
-#     list(
-#       method = "update",
-#       args = list(list("stackgroup" = "")),
-#       label = "Scatter"
-#     ),
-#     
-#     list(
-#       method = "update",
-#       args = list(list("stackgroup" = "one")),
-#       label = "Stackgroup"
-#     )
-#   )
-# )
-# hover <- list(
-#   x = 1.65,
-#   y = .7,
-#   buttons = list(
-#     list(
-#       method = "relayout",
-#       args = list(list("hovermode" = "closest")),
-#       label = "Hover off"
-#     ),
-#     list(
-#       method = "relayout",
-#       args = list(list("hovermode" = "x")),
-#       label = "Hover on "
-#     )
-#   )
-# )
-# Create interactive plot with plotly
-# symbol = ~gender_type,
-# fill = "tozeroy"
-# plot_ly(
-#   data = gender_all,
-#   x = ~date,
-#   y = ~unemployment_rate,
-#   type = "scatter",
-#   alpha = .7,
-#   color = ~gender_type,
-#   mode = "markers",
-#   text = ~ paste("Date: ", date, "<br>Unemployment Rate:", unemployment_rate,
-#                  "<br>gender:", gender_type)
-# ) %>%
-#   layout(
-#     title = "Unemployment Rate (20 Years or Older)",
-#     updatemenus = list(chart_type, hover),
-#     yaxis = list(title = "Unemployment Rate (%)"),
-#     xaxis = list(
-#       title = "Date",
-#       type = "date",
-#       range = c("2000-01-01", "2020-10-01"),
-#       rangeselector = list(
-#         buttons = list(
-#           list(
-#             count = 2,
-#             label = "2 yr",
-#             step = "year",
-#             stepmode = "backward"
-#           ),
-#           list(
-#             count = 5,
-#             label = "4 yr",
-#             step = "year",
-#             stepmode = "backward"
-#           ),
-#           list(
-#             count = 13,
-#             label = "12 yr",
-#             step = "year",
-#             stepmode = "backward"
-#           ),
-#           list(step = "all")
-#         )
-#       ),
-#       rangeslider = list(type = "date")
-#     )
-#   )
+#snagged from justin to try out
+#create interactive plot
+chart_type <- list(
+  x = 1.35,
+  y = .7,
+  buttons = list(
+    list(
+      method = "update",
+      args = list(list("stackgroup" = "")),
+      label = "Scatter"
+    ),
+
+    list(
+      method = "update",
+      args = list(list("stackgroup" = "one")),
+      label = "Stackgroup"
+    )
+  )
+)
+hover <- list(
+  x = 1.65,
+  y = .7,
+  buttons = list(
+    list(
+      method = "relayout",
+      args = list(list("hovermode" = "closest")),
+      label = "Hover off"
+    ),
+    list(
+      method = "relayout",
+      args = list(list("hovermode" = "x")),
+      label = "Hover on "
+    )
+  )
+)
+
+#Create interactive plot with plotly
+#symbol = ~gender_type,
+#fill = "tozeroy"
+plot_ly(
+  data = gender,
+  x = ~date,
+  y = ~unemployment_rate,
+  type = "scatter",
+  alpha = .7,
+  color = ~gender_type,
+  mode = "markers",
+  text = ~ paste("Date: ", date, "<br>Unemployment Rate:", unemployment_rate,
+                 "<br>gender:", gender_type)
+) %>%
+  layout(
+    title = "Unemployment Rate (20 Years or Older)",
+    updatemenus = list(chart_type, hover),
+    yaxis = list(title = "Unemployment Rate (%)"),
+    xaxis = list(
+      title = "Date",
+      type = "date",
+      range = c("2000-01-01", "2020-10-01"),
+      rangeselector = list(
+        buttons = list(
+          list(
+            count = 2,
+            label = "2 yr",
+            step = "year",
+            stepmode = "backward"
+          ),
+          list(
+            count = 5,
+            label = "4 yr",
+            step = "year",
+            stepmode = "backward"
+          ),
+          list(
+            count = 13,
+            label = "12 yr",
+            step = "year",
+            stepmode = "backward"
+          ),
+          list(step = "all")
+        )
+      ),
+      rangeslider = list(type = "date")
+    )
+  )
