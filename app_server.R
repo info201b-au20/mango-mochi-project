@@ -13,9 +13,15 @@ source("scripts/education.R")
 source("scripts/gender.R")
 source("scripts/race.R")
 source("scripts/table_summary.R")
+# Another dataset 
 states_data <- read.csv("data/states_data.csv")
 states_data_num <- states_data %>% 
   select(-c(3:8))
+colnames(states_data_num) <- select_values
+
+# Making the map, View(states)
+states <- map_data("state") 
+map_data <- states %>% left_join(states_data_num, by="region") 
 
 
 ######## education graph #########
@@ -205,12 +211,6 @@ server <- function(input, output) {
     
     title <- paste0(input$fill_input, " by State")
     
-    colnames(states_data_num) <- select_values
-    
-    # Making the map, View(states)
-    states <- map_data("state") 
-    map_data <- states %>% left_join(states_data_num, by="region") 
-    
     statistics_map <- ggplot(data = map_data) + 
       geom_polygon(aes(x = long, y = lat, 
                        fill = map_data[[input$fill_input]], group = group), 
@@ -224,13 +224,29 @@ server <- function(input, output) {
     
   })   
   
+  output$map2 <- renderPlotly({
+    
+    title <- paste0(input$fill_input_2, " by State")
+    
+    statistics_map_2 <- ggplot(data = map_data) + 
+      geom_polygon(aes(x = long, y = lat, 
+                       fill = map_data[[input$fill_input_2]], group = group), 
+                   color = "gray90", size = 0.05) +
+      blank_theme +
+      theme(legend.position = "bottom") +
+      coord_fixed(1.3) +
+      labs(fill = input$fill_input_2, title = title)
+    
+    ggplotly(statistics_map_2)
+    
+  })  
+  
+  
 ############# Map for State data
 output$states_data <- renderPlotly({
   
   # Store the title of the graph in a variable indicating the x/y variables
   title <- paste0(input$x_choice, " vs. ", input$y_choice)
-  
-  colnames(states_data_num) <- select_values
   
   comparison_plot <- ggplot(states_data_num) +
     geom_point(mapping = aes(x = states_data_num[[input$x_choice]], 

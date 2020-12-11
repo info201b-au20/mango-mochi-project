@@ -271,9 +271,16 @@ select_values <- c("region", "Abbreviation",
 # assign an inputId, label, and selected value
 fill_input <- selectInput(
   "fill_input",
-  label = "Data Choices: ",
+  label = "Map 1 Data Choices: ",
   choices = select_values,
   selected = "Percent Unemployed in 2018"
+)
+
+fill_input_2 <- selectInput(
+  "fill_input_2",
+  label = "Map 2 Data Choices: ",
+  choices = select_values,
+  selected = "Weekly UI Max in dollars"
 )
 
 # widgets for state page
@@ -286,9 +293,10 @@ map_sidebar <- sidebarPanel(
   br(), 
   
   h5("Data by State:"), 
-  p("Choose the different data options to visualize the difference in data 
-    between states."), 
+  p("Choose the different data options to visualize the difference in data
+    between states and with in each state."), 
   fill_input, 
+  fill_input_2, 
   
   br(),
   h5("Dataset Correlations:"), 
@@ -321,7 +329,11 @@ map_sidebar <- sidebarPanel(
 )
 # display maps 
 map_content <- mainPanel(
-  plotlyOutput("map"), 
+  fluidRow(
+    splitLayout(cellWidths = c("50%", "50%"), plotlyOutput("map"), 
+                plotlyOutput("map2"))
+  ), 
+  #plotlyOutput("map"), 
   plotlyOutput("states_data")
 )
 # map tab
@@ -336,7 +348,7 @@ map_panel <- tabPanel(
 summary_panel <- tabPanel(
   "Summary",
   titlePanel("Summary and Takeaways"),
-  img(src = "unemployment.jpg",height="430", width="750"),
+  img(src = "unemployment.jpg",height="645", width="1125"),
   # another option for img: covid-19-unemployment.jpg, can also find more
   h3("Summary"),
   p(

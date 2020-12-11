@@ -1,6 +1,9 @@
 # Team Mango Mochi
 By: Tenzin Zomkyi, Christina Chen, Noah Logman, and Justin Ung
 
+- [Mid Point Report](https://info201b-au20.github.io/mango-mochi-project/)
+- [Final Shiny App Link]()
+
 ## Domain of Interest
 **Why are you interested in this field/domain?**
 
