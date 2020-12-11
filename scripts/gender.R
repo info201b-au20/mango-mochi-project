@@ -1,14 +1,6 @@
 # ----------------------------------------
 # ############# loading data #############
 # ----------------------------------------
-
-library(dplyr)
-library(tidyr)
-library(ggplot2)
-library(plotly)
-library(rbokeh)
-library(gridExtra)
-
 # load unemployment data, set session to data file
 unemployment <- read.csv("data/unemployment.csv")
 
@@ -50,7 +42,7 @@ sapply(gender, typeof)
 
 # comments to be updated for this section
 gender_2020 <- unemployment %>%
-  select(Year, Month, 5:6) 
+  select(Year, Month, 5:6)
 
 gender_2020 <- gender_2020 %>%
   filter(Year == 2020) %>%
@@ -66,7 +58,7 @@ gender_2020 <- gender_2020 %>%
 # ######## rate by 2008 month, gender ########
 # --------------------------------------------
 gender_2008 <- unemployment %>%
-  select(Year, Month, 5:6) 
+  select(Year, Month, 5:6)
 
 gender_2008 <- gender_2008 %>%
   filter(Year == 2008) %>%
@@ -76,7 +68,14 @@ gender_2008 <- gender_2008 %>%
   rename(men = Unemployment_Rate_20_Years_Over_Men,
          women = Unemployment_Rate_20_Years_Over_Women) %>%
   gather(gender_type, unemployment_rate, 2:3) %>%
-  filter(!is.na(unemployment_rate)) #%>%
+  filter(!is.na(unemployment_rate))
+
+gender_data <- unemployment %>% 
+  select(Year, Month, 5:6) %>% 
+  rename(Men = Unemployment_Rate_20_Years_Over_Men,
+         Women = Unemployment_Rate_20_Years_Over_Women) %>%
+  gather(Gender, unemployment_rate, 3:4) %>%
+  filter(!is.na(unemployment_rate))
 
 # -------------------------------------------
 # ########### data visualization ############
@@ -116,8 +115,8 @@ gender_2008_plot <-
   scale_color_manual(values = gender_pallettte)
 
 # arrange 2008, 2020 plots side by side
-gender_2020_2008_plot <- 
-  grid.arrange(gender_2008_plot, gender_2020_plot, ncol = 2)  
+# gender_2020_2008_plot <- 
+#   grid.arrange(gender_2008_plot, gender_2020_plot, ncol = 2)  
 
 # -------------------------------------------
 # ############# miscellaneous ##############
@@ -162,7 +161,7 @@ hover <- list(
 #Create interactive plot with plotly
 #symbol = ~gender_type,
 #fill = "tozeroy"
-plot_ly(
+gender_graph <- plot_ly(
   data = gender,
   x = ~date,
   y = ~unemployment_rate,
