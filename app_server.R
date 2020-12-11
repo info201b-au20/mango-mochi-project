@@ -223,7 +223,28 @@ server <- function(input, output) {
     ggplotly(statistics_map)
     
   })   
-
+  
+############# Map for State data
+output$states_data <- renderPlotly({
+  
+  # Store the title of the graph in a variable indicating the x/y variables
+  title <- paste0(input$x_choice, " vs. ", input$y_choice)
+  
+  colnames(states_data_num) <- select_values
+  
+  comparison_plot <- ggplot(states_data_num) +
+    geom_point(mapping = aes(x = states_data_num[[input$x_choice]], 
+                             y = states_data_num[[input$y_choice]]), , 
+               color = input$color_var, 
+               size = input$size) + 
+    labs(x = input$x_choice, y = input$y_choice, title = title) +
+    theme_classic() +
+    theme(panel.grid.major.y = element_line(colour = "lightgrey"))
+    
+  ggplotly(comparison_plot)
+  
+  
+})   
   
 
   

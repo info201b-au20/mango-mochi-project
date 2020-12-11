@@ -213,6 +213,16 @@ gender_panel <- tabPanel(
 # widgets for race graph
 race_sidebar <- sidebarPanel(
   # your widget(s) here
+  
+  
+  
+  
+  p(strong("How does unemployment rates correlates with race?"), 
+    br(), "In this graph we can explore the relations between race and 
+    unemployment rates."), 
+  p("Choose the from........... to see how the 
+    unemployment rates differ for the different races (Asian, Black, Hispanic, 
+    White).")
 )
 # race graph itself
 race_content <- mainPanel(
@@ -266,21 +276,53 @@ fill_input <- selectInput(
   selected = "Percent Unemployed in 2018"
 )
 
-# widgets for map
+# widgets for state page
 map_sidebar <- sidebarPanel(
   # your widget(s) here
-  fill_input, 
-  h5("Details"), 
   p(strong("How does unemployment rates at the state level correlate with other 
            factors?"), br(), 
     "In this graph we can explore how unemployment rates, Unemployment 
     Insurance (UI) policies, population, and other factors relates."), 
+  br(), 
+  
+  h5("Data by State:"), 
   p("Choose the different data options to visualize the difference in data 
-    between states.")
+    between states."), 
+  fill_input, 
+  
+  br(),
+  h5("Dataset Correlations:"), 
+  p("Use the x and y options to compare and find correlations between the 
+    different datasets."), 
+  x_input <- selectInput(
+    "x_choice",
+    label = "X Variable",
+    choices = select_values[2:19],
+    selected = "Abbreviation"
+  ), 
+  y_input <- selectInput(
+    "y_choice",
+    label = "Y Variable",
+    choices = select_values[3:19],
+    selected = "Percent Unemployed in 2018"
+  ), 
+  
+  color_var <- selectInput(
+    "color_var",
+    label = "Color",
+    choices = brewer.pal(8, "Set2"), 
+    selected = "#8DA0CB"
+  ), 
+  
+  size_input <- sliderInput(
+    "size",
+    label = "Size of point", min = 1, max = 10, value = 2
+  )
 )
 # display maps 
 map_content <- mainPanel(
-  plotlyOutput("map")
+  plotlyOutput("map"), 
+  plotlyOutput("states_data")
 )
 # map tab
 map_panel <- tabPanel(
