@@ -7,5 +7,9 @@ h3{
 p{
   text-align: justify;
   font-family: verdana;
-  font-size: 12px;
+  font-size: 13px;
+}
+
+body {
+  background-color: #FDF5E6;
 }
