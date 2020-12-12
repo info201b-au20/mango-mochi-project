@@ -3,7 +3,7 @@ intro_panel <- tabPanel(
   "Introduction",
   titlePanel("COVID-19 Unemployment Impact"),
   p("By: Tenzin, Christina, Noah, & Justin"),
-  img(src = "covid.jpeg", height = "400", width = "1400"),
+  img(src = "covid.jpeg", height = "400", width = "100%"),
   h3("Introduction"),
   p(
     "In the midst of political, social, and economic polarization induced by
@@ -302,7 +302,7 @@ map_panel <- tabPanel(
 summary_panel <- tabPanel(
   "Summary",
   titlePanel("Summary and Takeaways"),
-  img(src = "unemployment.jpg", height = "400", width = "1400"),
+  img(src = "unemployment.jpg", height = "400", width = "100%"),
   # another option for img: covid-19-unemployment.jpg, can also find more
   h3("Education Takeaway"),
   p(
