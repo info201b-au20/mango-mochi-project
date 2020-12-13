@@ -3,37 +3,6 @@ source("scripts/gender.R")
 source("scripts/race.R")
 source("scripts/table_summary.R")
 
-# Another dataset
-states_data <- read.csv("data/states_data.csv")
-select_values <-c(
-  "region", "Abbreviation",
-  "Weekly UI Max in dollars",
-  "Weekly UI Max w/Extra Stimulus through July 31, 2020 (dollars)",
-  "UI Max duration (weeks)",
-  "UI Max Duration w/Pandemic Emergency Unemployment Compensation CARES
-    extension (weeks)",
-  "Minimum Total Earnings Required In Base Period to Qualify for UI",
-  "Number of calendar quarters w/earnings in base period needed to qualify
-    for UI",
-  "Minimum total earnings required outside highest earning calendar quarter
-    of base period to qualify for UI",
-  "Require earnings in the last two calendar quarters of the base period in
-    order to qualify for UI",
-  "Taxable Wage Amount", "Average Benefit Amount (August)",
-  "Population Density Per Square Miles", "Population in 2018",
-  "Number Homeless in 2019", "Percent Unemployed in 2018",
-  "Percent Living Under the Federal Poverty Line 2018",
-  "Percent At Risk for Serious Illness Due to COVID",
-  "All-cause Deaths in 2018"
-)
-states_data_num <- states_data %>%
-  select(-c(3:8))
-colnames(states_data_num) <- select_values
-
-# Making the map, View(states)
-states <- map_data("state")
-map_data <- states %>% left_join(states_data_num, by = "region")
-
 
 ######## education graph #########
 build_education_graph <- function(df, hover, year_range, type) {
@@ -91,102 +60,66 @@ build_education_graph <- function(df, hover, year_range, type) {
     )
 }
 
-#### tenz work in progress -------------------------------------------------
-# need to add rangeslider, or plotly buttons for data range
-
-build_gender_plot <- function(df, hover, year, type) {
-  gender_plot <- plot_ly(
-    data = df,
-    x = ~date,
-    y = ~unemployment_rate,
-    type = "scatter",
-    alpha = .9,
-    color = ~gender_type,
-    mode = "markers",
-    stackgroup = type,
-    text = ~ paste(
-      "Date: ", date, "<br>Unemployment Rate:", unemployment_rate,
-      "<br>gender:", gender_type
-    ),
-    width = 950, height = 700
-  ) %>%
-    layout(
-      hovermode = hover,
-      yaxis = list(title = "Unemployment Rate (%)"),
-      xaxis = list(
-        title = "Date",
-        type = "date",
-        range = year,
-        rangeselector = list(
-          buttons = list(
-            list(
-              count = 2,
-              label = "2 yr",
-              step = "year",
-              stepmode = "backward"
-            ),
-            list(
-              count = 5,
-              label = "4 yr",
-              step = "year",
-              stepmode = "backward"
-            ),
-            list(
-              count = 21,
-              label = "all",
-              step = "year",
-              stepmode = "backward"
-            )
-          )
-        )
-      )
-    )
-}
-
-build_gender_plot2 <- function(df, sel_year) {
-  gender_pallettte <- c("seagreen3", "mediumorchid")
+######## gender graph #########
+build_gender_plot <- function(df, sel_year) {
+  gender_fill <- c("seagreen3", "#c774db")
+  gender_bor <- c("#3cb367", "mediumorchid")
   df<- df %>% 
     filter(Year == sel_year)
   
+  df$unemployment_rate <- jitter(df$unemployment_rate)
+  
   gender_plot <- 
     ggplot(data = df, aes(x = Month, y = unemployment_rate)) +
-    geom_point(aes(color = Gender), size = 2) + 
-    geom_line() + 
-    labs(x = sel_year, y = "Unemployment Rate") + 
-    scale_color_manual(values = gender_pallettte)
+    geom_point(aes(color = Gender, fill = Gender), 
+               alpha = .9, size = 3) + 
+               #position = position_jitter(h = .1, w = 0), size = 2) + 
+    labs(x = sel_year, y = "Unemployment Rate (%)") + 
+    geom_line(color = "gray", alpha = .2, size = 3)
+    #geom_vline(xintercept = df$Month, linetype = 3, color = "black")
+  
+  gender_plot <- gender_plot +
+    scale_color_manual(values = gender_bor) + 
+    scale_fill_manual(values = gender_fill) + 
+    theme_minimal() 
+  
+  #geom_vline(xintercept = df$x, linetype= 3, colour = "#919191")
+  #df$value_j <- jitter(df$value)
 }
 
-# rough draft code for date range plotly buttons
-# updatemenus = list(
-# list(
-#   active = -1,
-#   type = 'buttons',
-#   buttons = list(
-#     list(
-#       label = 'COVID',
-#       method = "relayout",
-#       args = list(list(xaxis = list(range = as.POSIXct(c("2020-03-11","2020-09-01"), origin= "2020-09-01"),
-#                                     rangeselector = rangeselector,
-#                                     rangeslider = list(type = "date"))))),
-#     list(
-#       label = '2001 Recession',
-#       method = "relayout",
-#       args = list(list(xaxis = list(range = as.POSIXct(c("2001-03-01","2001-11-31"), origin= "2020-09-01"),
-#                                     rangeselector = rangeselector,
-#                                     rangeslider = list(type = "date"))))),
-#     list(
-#       label = 'Great Recession',
-#       method = "relayout",
-#       args = list(list(xaxis = list(range = as.POSIXct(c("2007-12-01","2009-06-31"), origin= "2020-09-01"),
-#                                     rangeselector = rangeselector,
-#                                     rangeslider = list(type = "date")))))
+######## map components #########
 
-# -----------------------------------------------------------------------
+# Another dataset
+states_data <- read.csv("data/states_data.csv")
+select_values <-c(
+  "region", "Abbreviation",
+  "Weekly UI Max in dollars",
+  "Weekly UI Max w/Extra Stimulus through July 31, 2020 (dollars)",
+  "UI Max duration (weeks)",
+  "UI Max Duration w/Pandemic Emergency Unemployment Compensation CARES
+    extension (weeks)",
+  "Minimum Total Earnings Required In Base Period to Qualify for UI",
+  "Number of calendar quarters w/earnings in base period needed to qualify
+    for UI",
+  "Minimum total earnings required outside highest earning calendar quarter
+    of base period to qualify for UI",
+  "Require earnings in the last two calendar quarters of the base period in
+    order to qualify for UI",
+  "Taxable Wage Amount", "Average Benefit Amount (August)",
+  "Population Density Per Square Miles", "Population in 2018",
+  "Number Homeless in 2019", "Percent Unemployed in 2018",
+  "Percent Living Under the Federal Poverty Line 2018",
+  "Percent At Risk for Serious Illness Due to COVID",
+  "All-cause Deaths in 2018"
+)
 
-unemployment_sum <- Unemployment_summary %>%
-  filter(Year > 2016 | Year > 2007 & Year < 2012) %>%
-  rename(Some_College = Some_College_or_Associate_Degree)
+states_data_num <- states_data %>%
+  select(-c(3:8))
+colnames(states_data_num) <- select_values
 
+# Making the map, View(states)
+states <- map_data("state")
+map_data <- states %>% left_join(states_data_num, by = "region")
 
 # Blank Map, making better for the map using blank_theme template
 # (cleaning lines in the map)
@@ -202,7 +135,9 @@ blank_theme <- theme_bw() +
     panel.border = element_blank() # remove border around plot
   )
 
-##### creates the server to create and output the graph from widget inputs.
+######## creating all visualizations #########
+
+# creates the server to create and output the graph from widget inputs.
 server <- function(input, output) {
   output$unemployment <- renderTable(unemployment_sum)
 
@@ -212,22 +147,21 @@ server <- function(input, output) {
       input$type
     ))
   })
+  
+  gender_data$Month <- factor(
+    gender_data$Month,  
+    levels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", 
+               "Oct", "Nov", "Dec"))
 
   output$gender_plot <- renderPlotly({
-    # return(build_gender_plot(
-    #   gender, input$hover, input$year,
-    #   input$type
-    # ))
-    # return(gender_2020_plot)
-    return(build_gender_plot2(gender_data, input$sel_year))
-  })
+    return(build_gender_plot(gender_data, input$sel_year))
+  },)
 
   output$race_graph <- renderPlot({
     return(race_graph)
   })
 
-
-  ############# Map for State data
+# Map1 for State data
   output$map <- renderPlotly({
     title <- paste0(input$fill_input, " by State")
 
@@ -264,8 +198,7 @@ server <- function(input, output) {
     ggplotly(statistics_map_2)
   })
 
-
-  ############# Map for State data
+# Map2 for State data
   output$states_data <- renderPlotly({
 
     # Store the title of the graph in a variable indicating the x/y variables
