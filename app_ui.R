@@ -1,3 +1,5 @@
+######## home page #########
+
 # First Tab which includes the introduction.
 intro_panel <- tabPanel(
   "Introduction",
@@ -54,6 +56,9 @@ intro_panel <- tabPanel(
   ),
   tableOutput("unemployment")
 )
+
+######## education page #########
+
 # widgets for education graph
 education_sidebar <- sidebarPanel(
   p(
@@ -93,10 +98,12 @@ education_sidebar <- sidebarPanel(
     selected = ""
   )
 )
+
 # education graph itself
 education_content <- mainPanel(
   plotlyOutput("education_graph"),
 )
+
 # education tab
 education_panel <- tabPanel(
   "Education Graph",
@@ -106,57 +113,45 @@ education_panel <- tabPanel(
     education_content
   )
 )
-list_years <- c(2000, 2001, 2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,
-                2012,2013,2014,2015,2016,2017,2018,2019,2020)
-#### tenz work in progress -------------------------------------------------
-# need to remove stackgroup, do scatter and line thingy
+
+######## gender page #########
+
+# variable for widget Year choices
+list_years <- c(
+  2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011,
+  2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+)
+
 # widgets for gender graph
 gender_sidebar <- sidebarPanel(
   p(
-    strong("How does unemployment rates correlate with the different genders?"),
-    br(), "In this graph we can explore the effects of gender on unemployment
-    rates, if any."
+    strong("How does unemployment rates correlate with different genders?"),
+    br(), "In this graph we can explore the unemployment rates for men
+    and women throughout the years."
   ),
-  p("Choose the from the time ranges and other display options to see how the
-    unemployment rates differ for men and women."),
-  # sliderInput(
-  #   "year",
-  #   label = "Year Range",
-  #   min = as.Date("2000-01-01", "%Y-%m-%d"),
-  #   max = as.Date("2020-09-01", "%Y-%m-%d"),
-  #   value = c(as.Date("2000-01-01"), as.Date("2020-09-01")),
-  #   timeFormat = "%Y-%m-%d"
-  # ),
-  # radioButtons(
-  #   "hover",
-  #   label = "Compare Mode",
-  #   choices = list(
-  #     "Off" = "closest",
-  #     "On" = "x"
-  #   ),
-  #   selected = "closest"
-  # ),
-  # radioButtons(
-  #   "type",
-  #   label = "Graph Type",
-  #   choices = list(
-  #     "Scatter" = "",
-  #     "Stack Group" = "one"
-  #   ),
-  #   selected = ""
-  # ),
+  p("Choose from different year options to see how the 
+    unemployment rates differ for men and women. "),
+
   selectInput(
     "sel_year",
     label = "Select Year",
     choices = list_years,
     selected = "2020"
-  )
+  ),
+
+  p("We hope this visualization simplifies the recession trends and helps you see interesting differences. 
+  Some notes about our graph: the overrepresentation of gender binary colors in data (pink, blue) inspired the choice of",
+    a(href = "https://blog.datawrapper.de/gendercolor/", "purple and green!"), "For the months with only one point, the 
+    unemployment rate was the same for men and women."
+    ),
+  
 )
 
 # gender graph itself
 gender_content <- mainPanel(
   plotlyOutput("gender_plot")
 )
+
 # gender tab
 gender_panel <- tabPanel(
   "Gender Graph",
@@ -167,7 +162,7 @@ gender_panel <- tabPanel(
   )
 )
 
-# -----------------------------------------------------------------------
+######## race page #########
 
 # widgets for race graph
 race_sidebar <- sidebarPanel(
@@ -181,10 +176,12 @@ race_sidebar <- sidebarPanel(
     White).")
   # your widget(s) here
 )
+
 # race graph itself
 race_content <- mainPanel(
   plotOutput("race_graph")
 )
+
 # race tab
 race_panel <- tabPanel(
   "Race Graph",
@@ -194,6 +191,8 @@ race_panel <- tabPanel(
     race_content
   )
 )
+
+######## map page #########
 
 # widgets for map
 select_values <- c(
@@ -217,6 +216,7 @@ select_values <- c(
   "Percent At Risk for Serious Illness Due to COVID",
   "All-cause Deaths in 2018"
 )
+
 # Create a variable `fill_input` that stores a `selectInput()` fill variables
 # assign an inputId, label, and selected value
 fill_input <- selectInput(
@@ -277,6 +277,7 @@ map_sidebar <- sidebarPanel(
     label = "Size of point", min = 1, max = 10, value = 2
   )
 )
+
 # display maps
 map_content <- mainPanel(
   fluidRow(
@@ -288,6 +289,7 @@ map_content <- mainPanel(
   # plotlyOutput("map"),
   plotlyOutput("states_data")
 )
+
 # map tab
 map_panel <- tabPanel(
   "State Data Graph",
@@ -298,7 +300,9 @@ map_panel <- tabPanel(
   )
 )
 
-# First Tab which includes the introduction.
+######## summary page  #########
+
+# summary tab 
 summary_panel <- tabPanel(
   "Summary",
   titlePanel("Summary and Takeaways"),
@@ -318,20 +322,19 @@ education, were not as significantly impacted."
   hr(),
   h3("Gender Takeaway"),
   p(
-    "The gender gap between sexes has always been a issue throughout history.
-Specifically as the result of COVID, how large, if any, is the gender gap
-between men and women? Surprisingly, our graph reveals that the unemployment
-rate between men and women as mostly been the same this past year.
-For 5 of the past months, the unemployment rate has been less than a
-1% difference. However, notably for April 2019, when COVID began taking a
-significant toll on Americans, the unemployment difference was the largest
-its been this past year with about a 3% difference. The gender binary colors
-(pink, blue) are ovverrepresented in data, which inspired the choice of ",
-    a(href = "https://blog.datawrapper.de/gendercolor/", "purple and green
- Statistics")
+    "
+    The gender gap between sexes has always been a issue throughout history.
+    Specifically as the result of COVID, how large, if any, is the gender gap
+    between men and women concerning unemployment? Surprisingly, our graph reveals no profound
+    discrepancies during this year. For the past 5 months, the unemployment rate has stayed below a 3% difference.
+    However, we discovered something new: that the COVID recession deviates from 'regular' recession trends. Notably in 
+    April 2020, when COVID began taking a significant toll, the unemployment rate for women began surpassing 
+    men; the opposite of what happened during the Great Recession (2007-2009). We believe this emphasizes 
+    workplace inequality in a different light due to possible factors including: childcare, volatility of work hours, 
+    occupational flexibility, and gender norms."
   ),
   hr(),
-  h3("Gender Takeaway"),
+  h3("Race Takeaway"),
   p(
     "With unemployment rates reaching massive levels due to the pandemic, it is
     important to pinpoint whether or not certain racial demographics have been
@@ -357,9 +360,16 @@ Americans."
   ),
   hr(),
   h3("Conclusion"),
-  p("Our conclusion here blah blah blah")
+  p("As students living through the COVID pandemic, we have seen and experienced 
+  significant changes to our daily lives. We saw this project as an opportunity to dig deeper into 
+  the affect of COVID on the dynamics of the labor force; to show that behind all
+  these numbers, there are certain groups facing the most adverse impacts. The COVID recession is 
+  not over yet and we hope that our analysis helps other gain simple and valuable insight.")
 )
-# Create overall ui by calling the into panel and plot panel
+
+######## overall ui #########
+
+# combine all pages by calling the intro panel and plot panels
 ui <- navbarPage(
   theme = "style.css",
   "COVID-19 Unemployment",
