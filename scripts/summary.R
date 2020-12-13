@@ -253,3 +253,15 @@ summary_info_2020$white_highest <- Unemployment %>%
 
 #View(summary_info_2020)
 
+#################### Group with highest rates #####################################
+education_highest <- education %>%
+  arrange(desc(unemployment_rate)) %>%
+  head(3)
+
+gender_highest <- gender_data %>%
+  arrange(desc(unemployment_rate)) %>%
+  head(3)
+
+race_highest <- race %>%
+  arrange(desc(unemployment_rate)) %>%
+  head(3)
