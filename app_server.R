@@ -93,7 +93,7 @@ build_race_plot <- function(df, race_choice) {
     filter(racial_background == race_choice)
   
   race_plot <- ggplot(data = df, aes(x = date, y = unemployment_rate))+
-    geom_bar(aes(fill = racial_background),stat = "identity") +
+    geom_bar(aes(fill = racial_background), stat = "identity") +
     ggtitle("Unemployment based on race in 2020") 
 }
 
@@ -170,9 +170,13 @@ server <- function(input, output) {
   output$gender_plot <- renderPlotly({
     return(build_gender_plot(gender_data, input$sel_year))
   },)
+  
+  # race$racial_background <- factor(
+  #   race$racial_background,  
+  #   levels = c("White", "Black", "Asian", "Hispanic"))
 
-  output$race_graph <- renderPlot({
-    return(build_race_plot(race,input$race_choice))
+  output$race_graph <- renderPlotly({
+    return(build_race_plot(race, input$race_choice))
   })
 
 # Map1 for State data
