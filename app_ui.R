@@ -164,7 +164,7 @@ gender_panel <- tabPanel(
 
 ######## race page #########
 
-list_race <- c("black","white","asian","hispanic")
+list_race <- c("Black","White","Asian","Hispanic")
 # widgets for race graph
 race_sidebar <- 
   sidebarPanel(
@@ -177,12 +177,12 @@ race_sidebar <-
     White)."),
   
   
-  selectInput("race_choice","Select Race", list_race, selected = "white")
+  selectInput("race_choice","Select Race", list_race, selected = "White")
 )
 
 # race graph itself
 race_content <- mainPanel(
-  plotOutput("race_graph")
+  plotlyOutput("race_graph")
 )
 
 # race tab
