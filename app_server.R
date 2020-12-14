@@ -134,6 +134,10 @@ blank_theme <- theme_bw() +
     panel.grid.minor = element_blank(), # remove minor grid lines
     panel.border = element_blank() # remove border around plot
   )
+########  create breaf data table in intro #########
+unemployment_sum <- Unemployment_summary %>%
+  filter(Year > 2016 | Year > 2007 & Year < 2012) %>%
+  rename(Some_College = Some_College_or_Associate_Degree)
 
 ######## creating all visualizations #########
 
