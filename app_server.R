@@ -83,18 +83,16 @@ build_gender_plot <- function(df, sel_year) {
     scale_fill_manual(values = gender_fill) + 
     theme_minimal() 
   
-  #geom_vline(xintercept = df$x, linetype= 3, colour = "#919191")
-  #df$value_j <- jitter(df$value)
 }
 
 ######### race graph #########
 build_race_plot <- function(df, race_choice) {
   df <- df %>%
-    filter(racial_background == race_choice)
+    filter(racial_background == race_choice) %>% 
+    rename(Race = racial_background)
   
   race_plot <- ggplot(data = df, aes(x = date, y = unemployment_rate))+
-    geom_bar(aes(fill = racial_background), stat = "identity") +
-    ggtitle("Unemployment based on race in 2020") 
+    geom_bar(aes(fill = Race), stat = "identity")
 }
 
 ######## map components #########
