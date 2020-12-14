@@ -139,9 +139,11 @@ gender_sidebar <- sidebarPanel(
     selected = "2020"
   ),
 
-  p("We hope this visualization simplifies the recession trends and helps you see interesting differences. 
-  Some notes about our graph: the overrepresentation of gender binary colors in data (pink, blue) inspired the choice of",
-    a(href = "https://blog.datawrapper.de/gendercolor/", "purple and green!"), "For the months with only one point, the 
+  p("We hope this visualization simplifies the recession trends and helps you
+  see interesting differences. Some notes about our graph: the
+    overrepresentation of gender binary colors in data (pink, blue) inspired
+    the choice of", a(href = "https://blog.datawrapper.de/gendercolor/",
+    "purple and green!"), "For the months with only one point, the
     unemployment rate was the same for men and women."
     ),
   
@@ -328,12 +330,15 @@ education, were not as significantly impacted."
     "
     The gender gap between sexes has always been a issue throughout history.
     Specifically as the result of COVID, how large, if any, is the gender gap
-    between men and women concerning unemployment? Surprisingly, our graph reveals no profound
-    discrepancies during this year. For the past 5 months, the unemployment rate has stayed below a 3% difference.
-    However, we discovered something new: that the COVID recession deviates from 'regular' recession trends. Notably in 
-    April 2020, when COVID began taking a significant toll, the unemployment rate for women began surpassing 
-    men; the opposite of what happened during the Great Recession (2007-2009). We believe this emphasizes 
-    workplace inequality in a different light due to possible factors including: childcare, volatility of work hours, 
+    between men and women concerning unemployment? Surprisingly, our graph
+    reveals no profound discrepancies during this year. For the past 5 months,
+    the unemployment rate has stayed below a 3% difference. However, we
+    discovered something new: that the COVID recession deviates from 'regular'
+    recession trends. Notably in April 2020, when COVID began taking a
+    significant toll, the unemployment rate for women began surpassing
+    men; the opposite of what happened during the Great Recession (2007-2009).
+    We believe this emphasizes workplace inequality in a different light due to
+    possible factors including: childcare, volatility of work hours,
     occupational flexibility, and gender norms."
   ),
   hr(),
@@ -364,10 +369,14 @@ Americans."
   hr(),
   h3("Conclusion"),
   p("As students living through the COVID pandemic, we have seen and experienced 
-  significant changes to our daily lives. We saw this project as an opportunity to dig deeper into 
-  the affect of COVID on the dynamics of the labor force; to show that behind all
-  these numbers, there are certain groups facing the most adverse impacts. The COVID recession is 
-  not over yet and we hope that our analysis helps other gain simple and valuable insight.")
+  significant changes to our daily lives. We saw this project as an opportunity
+  to dig deeper into the affect of COVID on the dynamics of the labor force;
+  to show that behind all these numbers, there are certain groups facing the 
+  most adverse impacts. The COVID recession is not over yet and we hope that 
+    our analysis helps other gain simple and valuable insight."),
+  br(),
+  br(),
+  br()
 )
 
 ######## overall ui #########
