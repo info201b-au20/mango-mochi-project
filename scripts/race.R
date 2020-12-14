@@ -23,13 +23,13 @@ race <- race %>%
 # rename cols so easier to read
 race <- race %>%
   rename(
-    White_Unemployment =
+    White =
       Unemployment_Rate_White,
-    Black_Unemployment =
+    Black =
       Unemployment_Rate_Black_or_African_American,
-    Asian_Unemployment =
+    Asian =
       Unemployment_Rate_Asian,
-    Hispanic_Unemployment =
+    Hispanic =
       Unemployment_Rate_Hispanic_or_Latino
   )
 

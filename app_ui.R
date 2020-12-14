@@ -164,17 +164,20 @@ gender_panel <- tabPanel(
 
 ######## race page #########
 
+list_race <- c("black","white","asian","hispanic")
 # widgets for race graph
-race_sidebar <- sidebarPanel(
+race_sidebar <- 
+  sidebarPanel(
   p(
-    strong("How does unemployment rates correlates with race?"),
-    br(), "In this graph we can explore the relations between race and
+    "In this graph we can explore the relations between race and
     unemployment rates."
   ),
-  p("Choose the from........... to see how the
+  p("Choose the from the options to see how the
     unemployment rates differ for the different races (Asian, Black, Hispanic,
-    White).")
-  # your widget(s) here
+    White)."),
+  
+  
+  selectInput("race_choice","Select Race", list_race, selected = "white")
 )
 
 # race graph itself
@@ -185,7 +188,7 @@ race_content <- mainPanel(
 # race tab
 race_panel <- tabPanel(
   "Race Graph",
-  titlePanel("graph title here"),
+  titlePanel("Unemployment Rate (Per Race in 2020)"),
   sidebarLayout(
     race_sidebar,
     race_content

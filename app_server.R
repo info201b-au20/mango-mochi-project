@@ -87,6 +87,16 @@ build_gender_plot <- function(df, sel_year) {
   #df$value_j <- jitter(df$value)
 }
 
+######### race graph #########
+build_race_plot <- function(df, race_choice) {
+  df <- df %>%
+    filter(racial_background == race_choice)
+  
+  race_plot <- ggplot(data = df, aes(x = date, y = unemployment_rate))+
+    geom_bar(aes(fill = racial_background),stat = "identity") +
+    ggtitle("Unemployment based on race in 2020") 
+}
+
 ######## map components #########
 
 # Another dataset
@@ -162,7 +172,7 @@ server <- function(input, output) {
   },)
 
   output$race_graph <- renderPlot({
-    return(race_graph)
+    return(build_race_plot(race,input$race_choice))
   })
 
 # Map1 for State data
