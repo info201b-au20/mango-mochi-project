@@ -86,13 +86,15 @@ build_gender_plot <- function(df, sel_year) {
 }
 
 ######### race graph #########
-build_race_plot <- function(df, race_choice) {
+build_race_plot <- function(df, race_choice, color_change) {
   df <- df %>%
     filter(racial_background == race_choice) %>% 
     rename(Race = racial_background)
   
   race_plot <- ggplot(data = df, aes(x = date, y = unemployment_rate))+
-    geom_bar(aes(fill = Race), stat = "identity")
+    geom_bar(aes(fill = Race), stat = "identity", fill = color_change)+
+    labs(x = "Months", y = "Unemployment Rate", 
+         title = "Unemployment Rate Based on Race in 2020") 
 }
 
 ######## map components #########
@@ -174,7 +176,7 @@ server <- function(input, output) {
   #   levels = c("White", "Black", "Asian", "Hispanic"))
 
   output$race_graph <- renderPlotly({
-    return(build_race_plot(race, input$race_choice))
+    return(build_race_plot(race, input$race_choice, color = input$color_change))
   })
 
 # Map1 for State data

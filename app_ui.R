@@ -170,7 +170,8 @@ list_race <- c("Black","White","Asian","Hispanic")
 # widgets for race graph
 race_sidebar <- 
   sidebarPanel(
-  p(
+    
+  p(strong("How does unemployment rates correlates with Race?"), br(),
     "In this graph we can explore the relations between race and
     unemployment rates."
   ),
@@ -179,7 +180,13 @@ race_sidebar <-
     White)."),
   
   
-  selectInput("race_choice","Select Race", list_race, selected = "White")
+  selectInput("race_choice","Select Race", list_race, selected = "White"), 
+  color_change <- selectInput(
+    "color_change",
+    label = "Color",
+    choices = brewer.pal(8, "Set3"),
+    selected = "#FB8072"
+  ),
 )
 
 # race graph itself
