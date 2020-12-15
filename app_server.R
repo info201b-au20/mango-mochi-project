@@ -93,8 +93,7 @@ build_race_plot <- function(df, race_choice, color_change) {
   
   race_plot <- ggplot(data = df, aes(x = date, y = unemployment_rate))+
     geom_bar(aes(fill = Race), stat = "identity", fill = color_change)+
-    labs(x = "Months", y = "Unemployment Rate", 
-         title = "Unemployment Rate Based on Race in 2020") 
+    labs(x = "Months", y = "Unemployment Rate") 
 }
 
 ######## map components #########

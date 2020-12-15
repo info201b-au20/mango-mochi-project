@@ -2,7 +2,7 @@
 By: Tenzin Zomkyi, Christina Chen, Noah Logman, and Justin Ung
 
 - [Mid Point Report](https://info201b-au20.github.io/mango-mochi-project/)
-- [Final Shiny App Link]()
+- [Final Shiny App Link](https://cziyuan.shinyapps.io/mango-mochi-project/)
 
 ## Domain of Interest
 **Why are you interested in this field/domain?**
